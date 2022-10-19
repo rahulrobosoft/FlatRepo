@@ -1,0 +1,23 @@
+form{
+    width: 535px;
+    height: 385px;
+    margin:377px 452px 376px 453px;
+    background-color: #F7F7F7;
+    box-shadow:0 0 11px 0 rgba(0,0,0,0.2);
+}
+
+.login {
+    /* height: 29px; */
+    /* background-color: red; */
+    /* width: 64px; */
+    color: #000000;
+    /* font-family:inter Medium; */
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 29px;
+    margin-top: 49px;
+    
+  }
+
+
