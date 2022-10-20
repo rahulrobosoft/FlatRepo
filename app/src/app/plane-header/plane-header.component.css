@@ -1,5 +1,10 @@
 .header {
     height: 100px;
-    width: 1440px;
+    width: 100%;
     background-color: #ffffff;
+  }
+
+  img{
+    margin-left: 110px;
+    margin-top: 20px;
   }

@@ -9,3 +9,17 @@
     max-width:1440px;
     max-height:1138px;
 } */
+
+
+.outer{
+    background: linear-gradient(52.03deg, #7A7FC8 0%, #BD385B 100%);
+    height: 100vh;
+    width: 100%;
+}
+
+.homr_outer{
+    background-color: #f7f7f7;
+    height: 100vh;
+    width: 100%;
+
+}

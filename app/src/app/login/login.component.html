@@ -1,5 +1,30 @@
-<form>
-    <div class="login">
-        
-    </div>
-</form>
+
+<app-plane-header></app-plane-header>
+<div class="outer">
+    <form>
+        <div class="login">
+            Login
+        </div>
+    
+        <div class="ip">
+            <div>
+                <input type="text" placeholder="Enter Username">
+            </div>
+    
+            <div>
+                <input type="password" placeholder="Enter Password">
+            </div>
+    
+            <div class="btn">
+                <button routerLink="/home" type="submit">Login</button>
+            </div>
+    
+            <div class="forgot-password">
+                <a routerLink="/forgot">Forgot Password</a>
+            </div>
+    
+        </div>
+    </form>
+    
+</div>
+
