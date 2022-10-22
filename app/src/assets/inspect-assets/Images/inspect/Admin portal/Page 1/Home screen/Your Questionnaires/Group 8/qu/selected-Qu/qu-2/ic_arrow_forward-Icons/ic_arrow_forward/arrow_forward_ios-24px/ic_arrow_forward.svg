@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>096CEB3C-A6F9-47EC-9744-2B5DAD806BE5</title>
+    <defs>
+        <filter x="-30.4%" y="-17.9%" width="160.7%" height="135.7%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.850980392   0 0 0 0 0.152941176   0 0 0 0 0.337254902  0 0 0 0.0835882867 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-screen" transform="translate(-354.000000, -520.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Your-Questionnaires-" filter="url(#filter-1)" transform="translate(130.000000, 120.000000)">
+                <g id="Group-8" transform="translate(20.000000, 184.000000)">
+                    <g id="qu/selected" transform="translate(0.000000, 204.000000)">
+                        <g id="arrow_forward_ios-24px" transform="translate(204.000000, 12.000000)">
+                            <polygon id="Path" points="5.88 4.12 13.76 12 5.88 19.88 8 22 18 12 8 2"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

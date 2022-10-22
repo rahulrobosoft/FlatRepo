@@ -8,6 +8,10 @@ import { PlaneHeaderComponent } from './plane-header/plane-header.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { HomeComponent } from './home/home.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,16 @@ import { HomeHeaderComponent } from './home-header/home-header.component';
     PlaneHeaderComponent,
     ForgotComponent,
     HomeComponent,
-    HomeHeaderComponent
+    HomeHeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

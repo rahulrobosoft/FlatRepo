@@ -1,14 +1,152 @@
-
 <div class="home_outer">
     <app-home-header></app-home-header>
-    <div class="quest">
-        <div class="your_quest">
-            Your<br> Questionnaries
+    <div class="body">
+        <div class="quest">
+            <div class="your_quest">
+                Your<br> Questionnaries
+            </div>
+
+            <div>
+                <button id="new_quest">New Questionnaire</button>
+            </div>
+
+            <div>
+                <button id="secure">Secure Coding Guidel...</button>
+            </div>
+
+            <div>
+                <ul class="quests">
+                    <li>ISMS Questionnarie<span><img src="../../assets/ic_arrow_forward.png"></span></li>
+                    <li>PA Questionnaire<span><img src="../../assets/ic_arrow_forward.png"></span></li>
+                    <li>Process Guideliness<span><img src="../../assets/ic_arrow_forward.png"></span></li>
+                </ul>
+            </div>
+
         </div>
 
-        <div>
-            <button>New Questionnaire</button>
+        <div class="right-div">
+
+            <div class="form">
+                <h3>Questionnaire</h3>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter Title</mat-label>
+                    <input matInput type="text" placeholder="Secure Coding Guideliness">
+                    <mat-hint>Please enter appropriate title</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput rows="3" cols="30"></textarea>
+                </mat-form-field>
+
+
+                <div class="buttons">
+                    <mat-form-field appearance="outline" style="width:50%;">
+                        <mat-label>Button-title</mat-label>
+                        <input matInput type="text" placeholder="">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="width:50%;">
+                        <mat-label>Button Text</mat-label>
+                        <input matInput type="text" placeholder="">
+                    </mat-form-field>
+                </div>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Check box test</mat-label>
+                    <input matInput type="text" placeholder="">
+                </mat-form-field>
+
+                <h3>Additional Details</h3>
+
+                <div class="data_row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Start</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Start</mat-label>
+                        <input matInput [matDatepicker]="picker1">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Auto Reminder</mat-label>
+                        <input matInput type="number" placeholder="">
+                        <span matSuffix>Days</span>
+                    </mat-form-field>
+                </div>
+
+                <div class="ppt">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select content PPT File</mat-label>
+                        <input matInput type="text" placeholder="">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select participant xl sheet</mat-label>
+                        <input matInput type="text" placeholder="">
+                    </mat-form-field>
+                </div>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Mail Body</mat-label>
+                    <textarea matInput rows="5" cols="100"></textarea>
+                </mat-form-field>
+
+
+            </div>
+
+            <div class="side-bar">
+                <div class="icons_list">
+                    <ul class="icons_ul">
+                        <li>
+                            <div>
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="save"></mat-icon>
+                                <p>SAVE</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="preview">
+                                </mat-icon>
+                                <p>PREVIEW</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="publish">
+                                </mat-icon>
+                                <p>PUBLISH</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add_alert">
+                                </mat-icon>
+                                <p>REMIND</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="notes">
+                                </mat-icon>
+                                <p>GENERAL REPORT</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
         </div>
-    
+
+
+
     </div>
 </div>
+
+<app-footer></app-footer>
