@@ -1,0 +1,88 @@
+.close{
+    width:97%;
+
+}
+
+.close p{
+    float: right;
+    font-size: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+form {
+    width: 535px;
+    height: 385px;
+    background-color: #F7F7F7;
+    box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    border-radius: 20px;
+}
+
+
+.login {
+    color: #000000;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 29px;
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+input {
+    width: 328px;
+    height: 56px;
+    padding-left: 15px;
+    margin-top: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    font-family: 'Roboto', sans-serif;
+     ;
+    letter-spacing: 0.15px;
+    line-height: 24px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.ip {
+    width: 328px;
+    margin: auto;
+}
+.btn{
+    text-align: center;
+}
+button {
+    width: 149px;
+    height: 48px;
+    background-color: #D92756;
+    border: none;
+    margin-top: 30px;
+    border-radius: 40px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 11px 0 rgba(0,0,0,0.2);
+}
+.forgot-password {
+   
+    margin-top: 10px;
+    /* opacity: 0.8; */
+    
+    font-family: Roboto;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 14px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .forgot-password a{
+    text-decoration: none;
+    color: #000000;
+
+  }

@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { DialogOptionsComponent } from './dialog-options/dialog-options.component';
+import { DialogOptions2Component } from './dialog-options2/dialog-options2.component';
+import { ChangePassComponent } from './change-pass/change-pass.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,11 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     HomeHeaderComponent,
     FooterComponent,
+    DialogOptionsComponent,
+    DialogOptions2Component,
+    ChangePassComponent,
   ],
+  entryComponents:[DialogOptionsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -59,16 +59,16 @@
 
                 <h3>Additional Details</h3>
 
-                <div class="data_row">
+                <div class=" data_row">
                     <mat-form-field appearance="outline">
-                        <mat-label>Select Start</mat-label>
+                        <mat-label>Select Start Date</mat-label>
                         <input matInput [matDatepicker]="picker">
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
-                        <mat-label>Select Start</mat-label>
+                        <mat-label>Select End Date</mat-label>
                         <input matInput [matDatepicker]="picker1">
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -138,6 +138,20 @@
                             </div>
                         </li>
                     </ul>
+                </div>
+
+                <div class="above_option" [hidden]="hide">
+                    <ul>
+                        <li routerLink="/changePassword">Change Password</li>
+                        <li (click)="openSaDialog();">Add/Remove Super Admins</li>
+                        <li (click)="openAdDialog();">Add/Remove Admins</li>
+                    </ul>
+                </div>
+
+                <div class="option" [class]="class">
+                    <button mat-fab (click)="openOptions()" [innerText]="it" aria-label="Example icon button with a delete icon">
+
+                    </button>
                 </div>
             </div>
 

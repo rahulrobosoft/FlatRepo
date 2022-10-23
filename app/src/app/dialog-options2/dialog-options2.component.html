@@ -1,0 +1,84 @@
+<div class="dialog">
+    <div class="close">
+        <p [mat-dialog-close]="true">X</p>
+    </div>
+    <h2 mat-dialog-title>Add/Remove Admins</h2>
+
+    <div class="row-1">
+        <mat-form-field appearance="outline">
+            <mat-label>Enter Name</mat-label>
+            <input matInput type="text" placeholder="">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Enter Employee Code</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Enter Mail ID</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
+
+        <button mat-fab aria-label="Example icon button with a delete icon">+
+        </button>
+    </div>
+
+
+    <hr>
+
+    <div class="row-1">
+        <mat-form-field appearance="outline">
+            <mat-label></mat-label>
+            <input matInput type="text" placeholder="" value="Rob">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label></mat-label>
+            <input matInput type="text" value="RT54321">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label></mat-label>
+            <input matInput type="text" value="rob@robosoftin.com">
+        </mat-form-field>
+
+        <button mat-fab aria-label="Example icon button with a delete icon">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+        </button>
+        <button mat-fab aria-label="Example icon button with a delete icon">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+        </button>
+    </div>
+
+    <div class="row-2">
+        <mat-form-field appearance="outline">
+            <mat-label></mat-label>
+            <input matInput type="text" placeholder="" value="Jane">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label></mat-label>
+            <input matInput type="text" value="RT98765">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label></mat-label>
+            <input matInput type="text" value="jane@robosoftin.com">
+        </mat-form-field>
+
+        <button mat-fab aria-label="Example icon button with a delete icon">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+        </button>
+        <button mat-fab aria-label="Example icon button with a delete icon">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+        </button>
+
+       
+    </div>
+
+    <div class="update">
+        <button [mat-dialog-close]="true">Update</button>
+        <button [mat-dialog-close]="true">Cancel</button>
+    </div>
+</div>

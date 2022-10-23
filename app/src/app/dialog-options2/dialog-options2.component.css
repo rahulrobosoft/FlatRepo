@@ -1,0 +1,57 @@
+.dialog{
+    padding:20px;
+}
+.row-1{
+    display: flex;
+    margin-top: 25px;
+}
+.row-2{
+    display: flex;
+    margin-top: 5px;
+}
+mat-form-field{
+    padding-left:15px;
+}
+
+mat-form-field:last-child{
+    width:300px;
+}
+
+button{
+    margin-left: 15px;
+    font-size: 20px;
+    background-color: #D92756 !important;
+}
+hr{
+    border-top: 1px dotted black;
+    width: 100%;
+    margin-top: 10px;
+}
+mat-icon{
+    font-size: 17px;
+}
+
+.update{
+    /* background: red; */
+    width:80%;
+}
+.update button {
+    background-color:#D92756;
+    font-size:14px;
+    font-family:'Roboto';
+    padding:5px;
+    border: none;
+    color:white;
+    width: 129px;
+    height: 48px;
+    float: right;
+    border-radius: 20px;
+}
+.close{
+    float:right;
+}
+.close p{
+    font-size: 20px;
+   color: #656568;
+   cursor: pointer;
+}
