@@ -74,3 +74,13 @@ button {
     color: #000000;
 
   }
+
+
+  small{
+    color:red;
+    margin-left: 3px;
+  }
+
+  input.ng-invalid.ng-touched{
+    border: 1px solid red;
+  }

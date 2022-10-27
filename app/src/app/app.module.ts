@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,11 +10,13 @@ import { HomeHeaderComponent } from './home-header/home-header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { DialogOptionsComponent } from './dialog-options/dialog-options.component';
 import { DialogOptions2Component } from './dialog-options2/dialog-options2.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './login.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,9 +37,12 @@ import { ChangePassComponent } from './change-pass/change-pass.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    
 
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
