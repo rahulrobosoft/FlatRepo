@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeHeaderComponent implements OnInit {
 
+  userStr:any;
+  userObj:any;
   constructor() { }
 
   ngOnInit(): void {
+    this.userStr = localStorage.getItem("user");
+    this.userObj = JSON.parse(this.userStr);
   }
+
+  
 
 }
