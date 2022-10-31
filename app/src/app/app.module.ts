@@ -17,6 +17,7 @@ import { DialogOptions2Component } from './dialog-options2/dialog-options2.compo
 import { ChangePassComponent } from './change-pass/change-pass.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
+import { PresentComponent } from './present/present.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { LoginService } from './login.service';
     DialogOptionsComponent,
     DialogOptions2Component,
     ChangePassComponent,
+    PresentComponent,
   ],
   entryComponents:[DialogOptionsComponent],
   imports: [

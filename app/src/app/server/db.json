@@ -1,7 +1,14 @@
 {
-    "login":{
-        "id":1,
-        "userName":"rahul",
-        "password":7259
+  "login": [
+    {
+      "id": 1,
+      "userName": "rahul",
+      "password": "7259"
+    },
+    {
+      "id": 2,
+      "userName": "nithin",
+      "password": "7259"
     }
+  ]
 }

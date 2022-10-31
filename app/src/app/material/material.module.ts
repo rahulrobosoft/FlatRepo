@@ -7,6 +7,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const MaterialComponents = [
   MatFormFieldModule,
@@ -16,6 +17,7 @@ const MaterialComponents = [
   MatIconModule,
   MatButtonModule,
   MatDialogModule,
+  MatCheckboxModule
 ]
 
 @NgModule({

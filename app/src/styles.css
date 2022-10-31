@@ -18,11 +18,19 @@
     width: 100%;
 }
 
-.homr_outer{
+/* .home_outer{
     background-color: #f7f7f7;
-    height: 100vh;
+    height: 100%;
     width: 100%;
+} */
 
+.ppt-present{
+    background-image: url('../src/assets/Bitmap.png');
+    background-size: cover;
+    /* min-height: 100vh; */
+    /* min-width: 0px; */
+    height: 94vh;
+    /* width: 100%; */
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -50,3 +58,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 button{
     cursor: pointer;
 }
+
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #36B834;
+  }

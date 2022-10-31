@@ -1,6 +1,6 @@
 <app-plane-header></app-plane-header>
 <div class="outer">
-    <form>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
         <div class="close">
             <p routerLink="/home">X</p>
         </div>
@@ -10,20 +10,21 @@
     
         <div class="ip">
             <div>
-                <input type="text" placeholder="Enter New Password">
+                <input type="password" placeholder="Enter New Password" formControlName="newpass" name="newpass">
+                <small *ngIf="reactiveForm.get('newpass')?.errors?.['required'] && reactiveForm.get('newpass')?.touched">New password is required field</small>
             </div>
     
             <div>
-                <input type="password" placeholder="Re-enter New Password">
+                <input type="password" placeholder="Re-enter New Password" formControlName="confirmpass" name="confirmpass">
+                <small *ngIf="reactiveForm.get('confirmpass')?.errors?.['required'] && reactiveForm.get('confirmpass')?.touched">Confirm password is required field</small>
+
+                <small *ngIf="reactiveForm.errors?.['passwordMismatchError'] && reactiveForm.get('confirmpass')?.touched" >Password Doesn't match</small>
             </div>
     
             <div class="btn">
-                <button routerLink="/home" type="submit">Update</button>
+                <button  type="submit">Update</button>
             </div>
-    
-            <!-- <div class="forgot-password">
-                <a routerLink="/forgot">Forgot Password</a>
-            </div> -->
+
     
         </div>
     </form>

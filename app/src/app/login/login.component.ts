@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   submitted!: boolean;
   uname!: boolean;
   password!: boolean;
+  name: any;
 
   constructor(private lService: LoginService, private _router: Router) { }
 
@@ -26,35 +27,44 @@ export class LoginComponent implements OnInit {
 
     })
 
-  
-    
+
+
 
   }
 
   onSubmit() {
-    console.log(this.reactiveForm);
+    // console.log(this.reactiveForm);
     this.submitted = true;
 
-    localStorage.setItem('user',JSON.stringify(this.reactiveForm.value));
-    sessionStorage.setItem('user',JSON.stringify(this.reactiveForm.value));
+    localStorage.setItem('user', JSON.stringify(this.reactiveForm.value));
+    sessionStorage.setItem('user', JSON.stringify(this.reactiveForm.value));
 
 
 
     this.lService.loginCheck().subscribe(data => {
-      if (this.reactiveForm.get('password')?.value == data.password && this.reactiveForm.get('username')?.value == data.userName) {
-        this._router.navigate(['home'])
-      }
-      if (this.reactiveForm.get('password')?.value != data.password) {
-        this.password = true;
-        this._router.navigate(['login'])
-        console.log(data.password);
-      }
-      if (this.reactiveForm.get('username')?.value != data.userName) {
-        this.uname = true;
-        this._router.navigate(['login'])
-        console.log(data.userName);
 
+      // console.log(data);
+      for (let d of data) {
+        if (this.reactiveForm.get('password')?.value == d.password && this.reactiveForm.get('username')?.value == d.userName) {
+          this._router.navigate(['home'])
+          // this.name = this.reactiveForm.get('username')?.value;
+    
+          // console.log(d.password + " " + d.userName);
+
+          break;
+
+        }
+        if (this.reactiveForm.get('password')?.value != d.password) {
+          this.password = true;
+          this._router.navigate(['login'])
+        }
+        if (this.reactiveForm.get('username')?.value != d.userName) {
+          this.uname = true;
+          this._router.navigate(['login'])
+
+        }
       }
+
     })
   }
 

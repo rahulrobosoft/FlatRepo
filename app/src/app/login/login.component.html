@@ -13,8 +13,7 @@
                     <small
                         *ngIf="reactiveForm.get('username')?.errors?.['required'] && (reactiveForm.get('username')?.touched || submitted)">Username
                         is required field</small>
-                    <small *ngIf="reactiveForm.get('username')?.errors?.['pattern']">Username cannot contain number or
-                        special characters</small>
+                    <small *ngIf="reactiveForm.get('username')?.errors?.['pattern']">Username cannot contain number or special characters</small>
                     <small *ngIf="(reactiveForm.get('username')?.touched) && uname">Username doesn't exist/incorrect</small>
 
                 </div>
