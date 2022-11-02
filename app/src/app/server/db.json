@@ -3,12 +3,32 @@
     {
       "id": 1,
       "userName": "rahul",
-      "password": "7259"
+      "password": "3022"
     },
     {
       "id": 2,
       "userName": "nithin",
-      "password": "7259"
+      "password": "1245"
+    }
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "name": "kevin",
+      "empCode": "RT12345",
+      "email": "kevin@robosoftin.com"
+    },
+    {
+      "id": 2,
+      "name": "John",
+      "empCode": "RT23456",
+      "email": "john@robosoftin.com"
+    },
+    {
+      "name": "Rahul",
+      "empCode": "RT03145",
+      "email": "rahul.y@robosoftin.com",
+      "id": 3
     }
   ]
 }

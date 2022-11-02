@@ -3,12 +3,28 @@
 }
 .row-1{
     display: flex;
-    margin-top: 25px;
+    /* margin-top: 25px; */
+    /* height: 400px; */
+    /* min-height: 200px;
+    overflow: auto; */
 }
-.row-2{
+
+.admin{
+
+    max-height: 150px;
+    overflow: auto;
+}
+
+.admin::-webkit-scrollbar{
+  display: none;
+}
+
+
+
+/* .row-2{
     display: flex;
     margin-top: 5px;
-}
+} */
 mat-form-field{
     padding-left:15px;
 }
@@ -26,6 +42,7 @@ hr{
     border-top: 1px dotted black;
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 25px;
 }
 mat-icon{
     font-size: 17px;
