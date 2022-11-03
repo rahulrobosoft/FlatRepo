@@ -13,22 +13,10 @@
   ],
   "admins": [
     {
-      "id": 1,
-      "name": "kevin",
-      "empCode": "RT12345",
-      "email": "kevin@robosoftin.com"
-    },
-    {
-      "id": 2,
-      "name": "John",
-      "empCode": "RT23456",
-      "email": "john@robosoftin.com"
-    },
-    {
-      "name": "Rahul",
-      "empCode": "RT03145",
-      "email": "rahul.y@robosoftin.com",
-      "id": 3
+      "name": "U2FsdGVkX19WIssenapaIH/TJYMcVJub4hL8z+4uSew=",
+      "empCode": "U2FsdGVkX1+8yJX+C6RVhbt665z6Kh4/dZ2xLdW/DbY=",
+      "email": "U2FsdGVkX1/k7MyDOhMlEBFV+nldfcv14o6gyKFpBhyTcVsBZfXArcS319dqNCfQ",
+      "id": 1
     }
   ]
 }

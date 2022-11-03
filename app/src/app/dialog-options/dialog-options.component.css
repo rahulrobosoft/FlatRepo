@@ -9,6 +9,11 @@
     overflow: auto; */
 }
 
+.mat-input-element:disabled{
+    background-color: #fff !important;
+    color:black !important;
+}
+
 .admin{
 
     max-height: 150px;

@@ -13,6 +13,10 @@ interface admins extends Array<admins[]>{
   empCode : string;
   email : string;
 }
+
+interface id {
+  id:number;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -42,12 +46,26 @@ export class LoginService {
     return this.http.get<admins[]>('http://localhost:3000/admins');
   }
 
-  addAdmin(name:any,code:any,email:any){
+  addAdmin(name:any,code:any,email:any):Observable<id>{
     const body = {
         name : name,
         empCode : code,
         email : email
     }
-    return this.http.post('http://localhost:3000/admins',body);
+    return this.http.post<id>('http://localhost:3000/admins',body);
+  }
+
+  deleteSuperAdmin(id:any){
+    return this.http.delete('http://localhost:3000/admins/' + id);
+  }
+
+  editSuperAdmin(id:any,name:any,empCode:any,mail:any){
+    const body = {
+      name : name,
+      empCode : empCode,
+      email : mail,
+      id : id
+    }
+    return this.http.put('http://localhost:3000/admins/'+ id,body);
   }
 }

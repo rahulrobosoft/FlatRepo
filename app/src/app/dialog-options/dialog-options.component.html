@@ -10,21 +10,22 @@
         
         <mat-form-field appearance="outline">
             <mat-label>Enter Name</mat-label>
-            <input matInput type="text" placeholder="" formControlName="name" name="name">
+            <input matInput type="text" placeholder="" formControlName="name" name="name" value="">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Enter Employee Code</mat-label>
-            <input matInput type="text" formControlName="empcode" name="empcode">
+            <input matInput type="text" formControlName="empcode" name="empcode" value="">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Enter Mail ID</mat-label>
-            <input matInput type="text" formControlName="mail" name="mail">
+            <input matInput type="text" formControlName="mail" name="mail" value="">
         </mat-form-field>
 
-        <button mat-fab aria-label="Example icon button with a delete icon">+
-        </button>
+        <button type="submit"  mat-fab aria-label="Example icon button with a delete icon" > 
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
+       </button>
 
     </form>
     </div>
@@ -36,23 +37,23 @@
     <div class="row-1" *ngFor="let detail of admin_details">
         <mat-form-field appearance="outline">
             <mat-label></mat-label>
-            <input matInput type="text" placeholder="" value={{detail.name}}>
+            <input matInput type="text" placeholder="" value={{detail.name}} [disabled]="db">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label></mat-label>
-            <input matInput type="text" value={{detail.empCode}}>
+            <input matInput type="text" value={{detail.empCode}} [disabled]="db">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label></mat-label>
-            <input matInput type="text" value={{detail.email}}>
+            <input matInput type="text" value={{detail.email}} [disabled]="db">
         </mat-form-field>
 
-        <button mat-fab aria-label="Example icon button with a delete icon">
+        <button (click)="editSuperAdmin(detail.id)"  mat-fab aria-label="Example icon button with a delete icon">
             <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
         </button>
-        <button mat-fab aria-label="Example icon button with a delete icon">
+        <button   mat-fab aria-label="Example icon button with a delete icon" (click)="deleteSuperAdmin(detail.id)">
             <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
         </button>
     </div>
