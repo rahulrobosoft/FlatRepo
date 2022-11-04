@@ -13,10 +13,16 @@
   ],
   "admins": [
     {
-      "name": "U2FsdGVkX19WIssenapaIH/TJYMcVJub4hL8z+4uSew=",
-      "empCode": "U2FsdGVkX1+8yJX+C6RVhbt665z6Kh4/dZ2xLdW/DbY=",
-      "email": "U2FsdGVkX1/k7MyDOhMlEBFV+nldfcv14o6gyKFpBhyTcVsBZfXArcS319dqNCfQ",
+      "name": "U2FsdGVkX180mXctLO5HYYadq2mmz89/kFK6NYLHIiU=",
+      "empCode": "U2FsdGVkX18OQz1iUK05pseEjSpy8YdvVlevH3wGn1o=",
+      "email": "U2FsdGVkX1/g0r4thqvgFBmQGzJPtldQ3A+F5S4rQbrwo3pZ8bLBSqVtJ/umC5+y",
       "id": 1
+    },
+    {
+      "name": "U2FsdGVkX19Qf3g1uxERH3Ue2YaOaemp2D38OJl0Pbw=",
+      "empCode": "U2FsdGVkX18aFKLmG+w13KpXkuTGnlAavoXD3ustR/w=",
+      "email": "U2FsdGVkX19J+xSJA/RCmKeX88IR+KEHgQu8QTe6S4z2F89yYUdHqOuQHWB5QrIq",
+      "id": 2
     }
   ]
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit,  } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from '../login.service';
+import { LoginService } from '../service/login.service';
 import { Router } from '@angular/router';
 import * as cryptojs from 'crypto-js';
 @Component({
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
   
     
 
-    this.lService.loginCheck().subscribe(data => {
+    this.lService.getLoginInfo().subscribe(data => {
 
       for (let d of data) {
         if (this.reactiveForm.get('password')?.value == d.password &&

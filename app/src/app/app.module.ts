@@ -16,8 +16,10 @@ import { DialogOptionsComponent } from './dialog-options/dialog-options.componen
 import { DialogOptions2Component } from './dialog-options2/dialog-options2.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginService } from './login.service';
+import { LoginService } from './service/login.service';
 import { PresentComponent } from './present/present.component';
+import { SuperAdminService } from './service/super-admin.service';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { PresentComponent } from './present/present.component';
     DialogOptions2Component,
     ChangePassComponent,
     PresentComponent,
+    FileUploadComponent,
   ],
   entryComponents:[DialogOptionsComponent],
   imports: [
@@ -44,7 +47,7 @@ import { PresentComponent } from './present/present.component';
     
 
   ],
-  providers: [LoginService],
+  providers: [LoginService,SuperAdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

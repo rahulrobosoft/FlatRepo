@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { passwordMatch } from 'src/validators/passwordMatch';
 import { Router } from '@angular/router';
-import { LoginService } from '../login.service';
+import { LoginService } from '../service/login.service';
 import * as cryptojs from 'crypto-js';
 
 
@@ -29,17 +29,17 @@ export class ChangePassComponent implements OnInit {
 
     this.name = localStorage.getItem('user'); //string
     this.name = JSON.parse(this.name); //obj
-    console.log(this.name.password);
+    // console.log(this.name.password);
     
     this.decrypt = cryptojs.AES.decrypt(this.name.password,"Hello").toString(cryptojs.enc.Utf8);
-    console.log(this.decrypt);
+    // console.log(this.decrypt);
     
 
 
     // console.log(this.name.username); //prop
 
     //fetch id of logged in user
-      this.lservice.loginCheck().subscribe(data => {
+      this.lservice.getLoginInfo().subscribe(data => {
         for(let i of data){
           if(i.userName == this.name.username){            
             this.id = i.id;

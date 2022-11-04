@@ -14,6 +14,9 @@ export class HomeHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userStr = localStorage.getItem("user");
     this.userObj = JSON.parse(this.userStr);
+
+    // console.log("I am reloading");
+    
   }
 
   
