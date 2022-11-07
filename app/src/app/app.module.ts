@@ -20,6 +20,7 @@ import { LoginService } from './service/login.service';
 import { PresentComponent } from './present/present.component';
 import { SuperAdminService } from './service/super-admin.service';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { AdminService } from './service/admin.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     
 
   ],
-  providers: [LoginService,SuperAdminService],
+  providers: [LoginService,SuperAdminService,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

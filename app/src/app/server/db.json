@@ -11,17 +11,31 @@
       "password": "1245"
     }
   ],
-  "admins": [
+  "superadmins": [
     {
-      "name": "U2FsdGVkX180mXctLO5HYYadq2mmz89/kFK6NYLHIiU=",
-      "empCode": "U2FsdGVkX18OQz1iUK05pseEjSpy8YdvVlevH3wGn1o=",
-      "email": "U2FsdGVkX1/g0r4thqvgFBmQGzJPtldQ3A+F5S4rQbrwo3pZ8bLBSqVtJ/umC5+y",
+      "name": "U2FsdGVkX1/AWpRG1ObUuYAYNKvXNIs3VSgDbFduMPQ=",
+      "empCode": "U2FsdGVkX19kw6WPDw6LdTGHXzHFyPpPV9P1sXAeG1E=",
+      "email": "U2FsdGVkX19IHtl+My5OAt/W+CTXF9uA0cbt6xNkdgCCmuZXOzZ9UJOYlRBFhxW0",
       "id": 1
     },
     {
-      "name": "U2FsdGVkX19Qf3g1uxERH3Ue2YaOaemp2D38OJl0Pbw=",
-      "empCode": "U2FsdGVkX18aFKLmG+w13KpXkuTGnlAavoXD3ustR/w=",
-      "email": "U2FsdGVkX19J+xSJA/RCmKeX88IR+KEHgQu8QTe6S4z2F89yYUdHqOuQHWB5QrIq",
+      "name": "U2FsdGVkX189xfdY4OjZVe8xVlf+YXFR2jWZwmhdcn8=",
+      "empCode": "U2FsdGVkX1+ZMqw+lxXUH5uQK8ejzqPlek+VzZKn8aQ=",
+      "email": "U2FsdGVkX1/wdLvOhd2w/qHfLXRJpChNx3EFZPQvooxZrIvHJHctxsangTAbANDl",
+      "id": 2
+    }
+  ],
+  "admins": [
+    {
+      "name": "Rahul",
+      "empCode": "RT03415",
+      "email": "rahul.y@robosoftin.com",
+      "id": 1
+    },
+    {
+      "name": "Nithin",
+      "empCode": "RT03416",
+      "email": "nithin.km@robosoftin.com",
       "id": 2
     }
   ]

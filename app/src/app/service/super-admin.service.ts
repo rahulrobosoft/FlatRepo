@@ -15,7 +15,7 @@ export class SuperAdminService {
 
 
   getSuperAdmins(){
-    return this.http.get<SuperAdmins[]>('http://localhost:3000/admins');
+    return this.http.get<SuperAdmins[]>('http://localhost:3000/superadmins');
   }
 
   addSuperAdmin(name:any,code:any,email:any):Observable<Identity>{
@@ -24,11 +24,11 @@ export class SuperAdminService {
         empCode : code,
         email : email
     }
-    return this.http.post<Identity>('http://localhost:3000/admins',body);
+    return this.http.post<Identity>('http://localhost:3000/superadmins',body);
   }
 
   deleteSuperAdmin(id:any){
-    return this.http.delete('http://localhost:3000/admins/' + id);
+    return this.http.delete('http://localhost:3000/superadmins/' + id);
   }
 
   editSuperAdmin(id:any,name:any,empCode:any,mail:any):Observable<EditAdmin>{
@@ -38,6 +38,6 @@ export class SuperAdminService {
       email : mail,
       id : id
     }
-    return this.http.put<EditAdmin>('http://localhost:3000/admins/'+ id,body);
+    return this.http.put<EditAdmin>('http://localhost:3000/superadmins/'+ id,body);
   }
 }
