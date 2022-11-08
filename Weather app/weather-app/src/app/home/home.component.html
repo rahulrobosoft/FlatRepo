@@ -1,0 +1,85 @@
+<div class="current-location">
+    <h2>{{this.details['name']}}, Karnataka</h2>
+    <div class="flex-items">
+        <mat-icon matSuffix [innerText]="fb" class="btn" [ngClass]="add" (click)="addToFav();"></mat-icon>
+        <p [ngClass]="add" [innerText]="it"></p>
+    </div>
+
+    <div class="location-info">
+        <img src="../../assets/icon_mostly_sunny.png" alt="">
+    </div>
+    <div class="temperature">
+        <p id="temp" *ngIf="celsius">{{temperature | degreeConversion }}</p>
+        <p id="temp" *ngIf="farhan">{{temperature}}</p>
+        <div id="degree">
+            <button (click)="changeToCelsius();">&#176; C</button>
+            <button (click)="changeToFarhan();">&#176; F</button>
+        </div>
+
+    </div>
+    <div class="temperature">
+        <p id="climate">Mostly Sunny</p>
+
+    </div>
+</div>
+
+
+<div id="footer">
+    <hr>
+
+    <div id="more-info-outer" class="d-flex">
+        <div class="more-info d-flex">
+            <div>
+                <img src="../../assets/icon_temperature_info.png" alt="">
+            </div>
+
+            <div class="more-info-content">
+                <p>Min-Max</p>
+                <p>{{(this.details['main'].temp_max | degreeConversion)}}&#176; - {{(this.details['main'].temp_min |
+                    degreeConversion)}}&#176;</p>
+            </div>
+        </div>
+        <div class="more-info d-flex">
+            <div>
+                <img src="../../assets/icon_precipitation_info.png" alt="">
+            </div>
+
+            <div class="more-info-content">
+                <p>Precipitation</p>
+                <p>0%</p>
+            </div>
+        </div>
+        <div class="more-info d-flex">
+            <div>
+                <img src="../../assets/icon_humidity_info.png" alt="">
+            </div>
+
+            <div class="more-info-content">
+                <p>Humidity</p>
+                <p>{{(this.details['main'].humidity)}}%</p>
+            </div>
+        </div>
+        <div class="more-info d-flex">
+            <div>
+                <img src="../../assets/icon_wind_info.png" alt="">
+            </div>
+
+            <div class="more-info-content">
+                <p>Wind</p>
+                <p>4 mph</p>
+            </div>
+        </div>
+        <div class="more-info d-flex">
+            <div>
+                <img src="../../assets/icon_visibility_info.png" alt="">
+            </div>
+
+            <div class="more-info-content">
+                <p>Visibility</p>
+                <p>12 mph</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>

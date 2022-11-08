@@ -1,0 +1,31 @@
+
+
+    <nav id="header">
+
+
+        <div>
+            <img src="../../assets/logo_web.png" alt="" id="logo">
+        </div>
+    
+        <div id="ip_search">
+            <input type="text" id="search" placeholder="Search city">
+            <mat-icon matSuffix>search</mat-icon>
+        </div>
+    </nav>
+    
+    
+    <div class="navbar">
+        <div class="nav-items">
+            <ul>
+                <li routerLink="/home" [routerLinkActive]="active">HOME</li>
+                <li routerLink="/favourites" [routerLinkActive]="active">FAVORITE</li>
+                <li routerLink="/recent-searches" [routerLinkActive]="active">RECENT SEARCH</li>
+            </ul>
+        </div>
+        
+            <p id="date">{{date | date:"EEE, dd MMM YYYY  HH:MM a"}}</p>
+        
+    </div>
+
+    <hr>
+
