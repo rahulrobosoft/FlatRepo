@@ -48,16 +48,17 @@
     justify-content:flex-start;
 }
 .center img{
-    height: 38px;
-    width:38px;
+    height: 48px;
+    width:48px;
     margin-right: 25px;
 }
 
 .degree{
     font-size: 32px;
     font-weight: 500;
-    margin-top: 8px;
+    margin-top: 12px;
     margin-right: 20px;
+    width:50px;
 
 }
 
@@ -67,7 +68,14 @@
 
 .climate{
     font-size: 18px;
-    margin-top: 8px;
+    margin-top: 14px;
     /* margin-right: 20px; */
 }
 
+
+.no-add{
+    color:#fff;
+}
+.add{
+    color:#FFD639;
+}

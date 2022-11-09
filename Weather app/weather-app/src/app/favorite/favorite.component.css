@@ -48,8 +48,8 @@
     justify-content:flex-start;
 }
 .center img{
-    height: 38px;
-    width:38px;
+    height: 48px;
+    width:48px;
     margin-right: 25px;
 }
 
@@ -73,6 +73,9 @@
 
 }
 
-mat-icon{
-    color: #FFD639;
+.no-add{
+    color:#fff;
+}
+.add{
+    color:#FFD639;
 }

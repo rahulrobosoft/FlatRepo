@@ -10,6 +10,12 @@ export class RemoveFavsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  clearAll(){
+    localStorage.removeItem('favorites');
+    window.location.reload();
   }
 
 }

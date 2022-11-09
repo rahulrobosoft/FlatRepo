@@ -1,25 +1,27 @@
 <div class="current-location">
-    <h2>{{this.details['name']}}, Karnataka</h2>
+    <h2>{{this.currentCity['name']}}, Karnataka</h2>
     <div class="flex-items">
         <mat-icon matSuffix [innerText]="fb" class="btn" [ngClass]="add" (click)="addToFav();"></mat-icon>
         <p [ngClass]="add" [innerText]="it"></p>
     </div>
 
     <div class="location-info">
-        <img src="../../assets/icon_mostly_sunny.png" alt="">
+        <img src="http://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" alt="">
     </div>
+
     <div class="temperature">
         <p id="temp" *ngIf="celsius">{{temperature | degreeConversion }}</p>
         <p id="temp" *ngIf="farhan">{{temperature}}</p>
         <div id="degree">
-            <button (click)="changeToCelsius();">&#176; C</button>
-            <button (click)="changeToFarhan();">&#176; F</button>
+            <button (click)="changeToCelsius();" [ngClass]="active1">&#176; C</button>
+            <button (click)="changeToFarhan();" [ngClass]="active2">&#176; F</button>
+
         </div>
 
     </div>
-    <div class="temperature">
-        <p id="climate">Mostly Sunny</p>
 
+    <div class="temperature">
+        <p id="climate">{{(this.currentCity['weather'][0].main)}}</p>
     </div>
 </div>
 
@@ -35,7 +37,7 @@
 
             <div class="more-info-content">
                 <p>Min-Max</p>
-                <p>{{(this.details['main'].temp_max | degreeConversion)}}&#176; - {{(this.details['main'].temp_min |
+                <p>{{(this.currentCity['main'].temp_max | degreeConversion)}}&#176; - {{(this.currentCity['main'].temp_min |
                     degreeConversion)}}&#176;</p>
             </div>
         </div>
@@ -56,7 +58,7 @@
 
             <div class="more-info-content">
                 <p>Humidity</p>
-                <p>{{(this.details['main'].humidity)}}%</p>
+                <p>{{(this.currentCity['main'].humidity)}}%</p>
             </div>
         </div>
         <div class="more-info d-flex">
@@ -66,7 +68,7 @@
 
             <div class="more-info-content">
                 <p>Wind</p>
-                <p>4 mph</p>
+                <p>{{(this.currentCity['wind'].speed)}} mph</p>
             </div>
         </div>
         <div class="more-info d-flex">

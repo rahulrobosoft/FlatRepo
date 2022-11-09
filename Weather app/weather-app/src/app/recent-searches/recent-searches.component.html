@@ -1,110 +1,35 @@
-<!-- <div class="no-favs">
+<div class="no-favs" *ngIf="show">
     <img src="../../assets/icon_nothing.png" alt="">
     <p>No Recent Search</p>
-</div> -->
+</div>
 
-<div class="status">
+<div class="status"  *ngIf="recent_searches">
     <p>You recently searched for</p>
+    <p class="btn" (click)="clearAll()">Clear all</p>
+
+
 
 </div>
 
 <div class="list ">
-    <div class="row d-flex">
+    <div class="row d-flex" *ngFor="let search of recent_searches">
         <div class="name">
-            <p>Udupi, Karnataka</p>
+            <p>{{search['name']}}, Karnataka</p>
         </div>
         <div class="d-flex center">
-            <img  src="../../assets/icon_mostly_sunny.png" alt="">
-            <p class="degree">31<span>&#176;C</span></p>
-            <p class="climate">Mostly Sunny</p>
+            <img src="http://openweathermap.org/img/wn/{{search['weather'][0].icon}}@2x.png" alt="">
+            <p class="degree">{{search['main'].temp | degreeConversion}}<span>&#176;C</span></p>
+            <p class="climate">{{search['weather'][0].main}}</p>
         </div>
         <div>
-            <mat-icon matSuffix>favorite_border</mat-icon>
+            <!-- <mat-icon matSuffix>favorite_border</mat-icon> -->
+          
+                {{check(search['name'])}}
+            
+        <mat-icon *ngIf="fav" matSuffix class="add">favorite</mat-icon>
+        <mat-icon *ngIf="favB" matSuffix  >favorite_border</mat-icon>
 
-        </div>
-    </div>
 
-
-
-    <div class="row d-flex">
-        <div class="name"> 
-            <p>Bangalore, Karnataka</p>
-        </div>
-        <div class="d-flex center">
-            <img  src="../../assets/icon_rain_small.png" alt="">
-            <p class="degree">29<span>&#176;C</span></p>
-            <p class="climate">Rain</p>
-        </div>
-        <div>
-           <mat-icon matSuffix>favorite_border</mat-icon>
-        </div>
-    </div>   
-    
-    
-    <div class="row d-flex">
-        <div class="name">
-            <p>Mumbai, Maharashtra</p>
-        </div>
-        <div class="d-flex center">
-            <img  src="../../assets/icon_mostly_cloudy_small.png" alt="">
-            <p class="degree">32<span>&#176;C</span></p>
-            <p class="climate">Mostly Cloudy</p>
-        </div>
-        <div>
-           <mat-icon matSuffix>favorite_border</mat-icon>
-        </div>
-    </div>   
-    
-    
-    <div class="row d-flex">
-        <div class="name">
-            <p>Kolkatta, West Bengal</p>
-        </div>
-        <div class="d-flex center">
-            <img  src="../../assets/icon_partly_cloudy_small.png" alt="">
-            <p class="degree">30<span>&#176;C</span></p>
-            <p class="climate">Partly Cloudy</p>
-        </div>
-        <div>
-           <mat-icon matSuffix>favorite_border</mat-icon>
-        </div>
-    </div>   
-    
-    <div class="row d-flex">
-        <div class="name">
-            <p>Panaji, Cloudy</p>
-        </div>
-        <div class="d-flex center">
-            <img  src="../../assets/icon_thunderstorm_small.png" alt="">
-            <p class="degree">31<span>&#176;C</span></p>
-            <p class="climate">Thunderstorm</p>
-        </div>
-        <div>
-           <mat-icon matSuffix>favorite_border</mat-icon>
-        </div>
-    </div>    <div class="row d-flex">
-        <div class="name">
-            <p>Newyork, United States</p>
-        </div>
-        <div class="d-flex center">
-            <img  src="../../assets/icon_clear_night_small.png" alt="">
-            <p class="degree">24<span>&#176;C</span></p>
-            <p class="climate">Clear Night</p>
-        </div>
-        <div>
-           <mat-icon matSuffix>favorite_border</mat-icon>
-        </div>
-    </div>    <div class="row d-flex">
-        <div class="name">
-            <p>Udupi, Karnataka</p>
-        </div>
-        <div class="d-flex center">
-            <img  src="../../assets/icon_mostly_sunny.png" alt="">
-            <p class="degree">31<span>&#176;C</span></p>
-            <p class="climate">Mostly Sunny</p>
-        </div>
-        <div>
-           <mat-icon matSuffix>favorite_border</mat-icon>
         </div>
     </div>
 </div>

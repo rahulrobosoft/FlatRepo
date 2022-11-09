@@ -12,7 +12,7 @@ import { RecentSearchesComponent } from './recent-searches/recent-searches.compo
 import { RemoveFavsComponent } from './remove-favs/remove-favs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DegreeConversionPipe } from './degree-conversion.pipe';
-
+import { WeatherService } from './service/weather.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +30,7 @@ import { DegreeConversionPipe } from './degree-conversion.pipe';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

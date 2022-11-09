@@ -11,7 +11,7 @@
 
 .container{
     margin:auto;
-    width:900px;
+    max-width:900px;
 }
 
 html, body { height: 100%; }
