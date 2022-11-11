@@ -1,28 +1,30 @@
-<div class="no-favs" *ngIf="show">
+<div class="no-favs" *ngIf="favorites === null || favorites?.length < 1 ">
     <img src="../../assets/icon_nothing.png" alt="">
     <p>No Favourites added</p>
 </div>
 
-<div class="status" *ngIf="favorites.length">
+
+
+<div class="status"  *ngIf="favorites?.length >= 1">
     <p>{{favorites.length}} city added as favourite</p>
-    <p (click)="openDialog()" class="btn">Remove all</p>
+    <p (click)="openDialog()" class="btn" >Remove all</p>
 </div>
 
-<div class="list" *ngFor="let favs of favorites">
-    <div class="row d-flex">
+<div class="list"  >
+    <div class="row d-flex" *ngFor="let favs of favorites">
         <div class="name">
-            <p>{{favs['name']}}, Karnataka</p>
+            <p id="name">{{favs['name']}}, Karnataka</p>
         </div>
+
         <div class="d-flex center">
-            <img  src="http://openweathermap.org/img/wn/{{favs['weather'][0].icon}}@2x.png" alt="">
+            <img src="http://openweathermap.org/img/wn/{{favs['weather'][0].icon}}@2x.png" alt="">
             <p class="degree">{{favs['main'].temp | degreeConversion}}<span>&#176;C</span></p>
             <p class="climate">{{favs['weather'][0].main}}</p>
         </div>
-        <div>
-           
-        <mat-icon matSuffix [innerText]="fb" class="btn" [ngClass]="add" (click)="removeFromFav(favs['name']);"></mat-icon>
 
+        <div>
+            <mat-icon matSuffix [innerText]="fb" class="btn" [ngClass]="add" (click)="removeFromFav(favs['name']);">
+            </mat-icon>
         </div>
     </div>
-
 </div>

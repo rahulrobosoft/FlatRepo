@@ -1,54 +1,57 @@
-
-
-    <nav id="header">
-
-        <div id="menu">
-            <mat-icon  matSuffix (click)="bringMenu();">menu</mat-icon>
-        </div>
-
-        <div>
-            <img src="../../assets/logo_web.png" alt="" id="logo">
-        </div>
-    
-        <div id="ip_search">
-            <input type="text" id="search" placeholder="Search city" #city>
-            <mat-icon id="icon" matSuffix (click)="searchCity(city.value)">search</mat-icon>
-        </div>
-    </nav>
-    
-    
-    <div class="navbar">
-        <div class="nav-items">
-            <ul>
-                <li routerLink="/home" [routerLinkActive]="active">HOME</li>
-                <li routerLink="/favourites" [routerLinkActive]="active">FAVORITE</li>
-                <li routerLink="/recent-searches" [routerLinkActive]="active">RECENT SEARCH</li>
-            </ul>
-        </div>
-        
-            <p id="date">{{date | date:"EEE, dd MMM YYYY  HH:MM a"}}</p>
-        
+<nav id="header">
+    <div id="menu">
+        <mat-icon matSuffix (click)="bringMenu();">menu</mat-icon>
     </div>
 
-    <div class="navbar-mobile" [ngClass]="show">
-
-        <p id="close">X</p>
-        <div class="nav-items-mobile">
-            <ul>
-                <li routerLink="/home" [routerLinkActive]="active">Home</li>
-                <li routerLink="/favourites" [routerLinkActive]="active">Favorite</li>
-                <li routerLink="/recent-searches" [routerLinkActive]="active">Recent Search</li>
-            </ul>
-        </div>
-        
-      
-        
-        
+    <div>
+        <img src="../../assets/logo_web.png" alt="Logo" id="logo">
     </div>
 
+    <div id="ip_search_pc">
+        <input type="text" id="search" placeholder="Search city" #city>
+        <mat-icon id="icon" matSuffix (click)="searchCity(city.value)">search</mat-icon>
+    </div>
+
+    <div id="ip_search_mobile">
+        <mat-icon id="icon" matSuffix (click)="searchMobile()">search</mat-icon>
+    </div>
+</nav>
 
 
-    
+<div class="navbar">
+    <div class="nav-items">
+        <ul>
+            <li routerLink="/home" [routerLinkActive]="active">HOME</li>
+            <li routerLink="/favourites" [routerLinkActive]="active">FAVORITE</li>
+            <li routerLink="/recent-searches" [routerLinkActive]="active">RECENT SEARCH</li>
+        </ul>
+    </div>
 
-    <hr>
+    <div class="date">
+        <p id="date">{{date | date:"EEE, dd MMM YYYY h:mm a"}}</p>
+    </div>
+</div>
 
+<div class="navbar-mobile " [ngClass]="show">
+    <div class="close">
+        <p id="close" (click)="close();">X</p>
+    </div>
+
+    <div class="nav-items-mobile btn">
+        <ul>
+            <li routerLink="/home" [routerLinkActive]="active" (click)="close()">Home</li>
+            <li routerLink="/favourites" [routerLinkActive]="active" (click)="close()">Favorite</li>
+            <li routerLink="/recent-searches" [routerLinkActive]="active" (click)="close()">Recent Search</li>
+        </ul>
+    </div>
+</div>
+
+<div id="search_bg" *ngIf="show_search">
+    <div class="bg">
+        <mat-icon id="back" class="btn" matSuffix (click)="goBack()">arrow_back</mat-icon>
+        <input type="text" id="searchBox" autofocus="autofocus" placeholder="Search city" #city>
+        <mat-icon id="iconMobile" matSuffix (click)="searchCity(city.value)">search</mat-icon>
+    </div>
+
+</div>
+<hr>

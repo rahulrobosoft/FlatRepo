@@ -1,9 +1,12 @@
 <div class="current-location">
-    <h2>{{this.currentCity['name']}}, Karnataka</h2>
-    <div class="flex-items">
-        <mat-icon matSuffix [innerText]="fb" class="btn" [ngClass]="add" (click)="addToFav();"></mat-icon>
-        <p [ngClass]="add" [innerText]="it"></p>
+    <div class="city">
+        <h2>{{this.currentCity['name']}}, Karnataka</h2>
+        <div class="flex-items">
+            <mat-icon matSuffix [innerText]="fb" class="btn" [ngClass]="add" (click)="addToFav();"></mat-icon>
+            <p [ngClass]="add" [innerText]="it"></p>
+        </div>
     </div>
+    
 
     <div class="location-info">
         <img src="http://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" alt="">

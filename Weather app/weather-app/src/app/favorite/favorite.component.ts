@@ -1,68 +1,70 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RemoveFavsComponent } from '../remove-favs/remove-favs.component';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-favorite',
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.css']
 })
+
 export class FavoriteComponent implements OnInit {
 
-  show: any;
+  show!: boolean;
   favorites: any;
+  fav: any;
+  curr: any;
 
   fb = 'favorite';
   add = 'add';
-  constructor(private dialog: MatDialog) { }
+  status!:boolean;
+
+  constructor(private dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
-    this.favorites = localStorage.getItem('favorites');
-    this.favorites = JSON.parse(this.favorites);
+    this.update();
 
-    if (localStorage.getItem('favorites')) {
-      this.show = false;
-    }
-    else {
-      this.show = true;
-    }
+   
   }
 
   openDialog() {
-    this.dialog.open(RemoveFavsComponent, {
+    let dialogRef = this.dialog.open(RemoveFavsComponent, {
       height: "210px",
       width: "458px",
     })
+
+    dialogRef.afterClosed().subscribe(data => {
+      console.log(data.data);
+      this.update();
+      // this.show=true;
+      
+    })
+
+
   }
 
   removeFromFav(name: string) {
     console.log(name);
+    this.fav = localStorage.getItem('favorites');
+    this.fav = JSON.parse(this.fav);
 
-    if (this.fb == 'favorite') {
-      // this.fb='favorite_border';
-      // this.add = 'no-add';
-      let fav: any;
-      let curr: any;
-
-      fav = localStorage.getItem('favorites');
-      fav = JSON.parse(fav);
-      console.log(fav);
-
-      curr = fav.find((cur: any) => {
-        return cur['name'] === name;
-      })
-
-      fav.splice(curr.index, 1);
-      localStorage.setItem('favorites', JSON.stringify(fav));
-      window.location.reload();
-
-
-
-
-    }
-    else {
-      this.fb = 'favorite';
-      this.add = 'add';
-    }
+    this.curr = this.fav.find((cur: any) => {
+      return cur['name'] === name;
+    })
+    
+    this.fav.splice(this.fav.indexOf(this.curr), 1);
+    this.favorites = this.fav;
+    localStorage.setItem('favorites', JSON.stringify(this.fav));
+    this.update();
   }
 
+  update(){
+    this.favorites = localStorage.getItem('favorites');
+    this.favorites = JSON.parse(this.favorites);
+    
+
+
+ 
+  }
 }

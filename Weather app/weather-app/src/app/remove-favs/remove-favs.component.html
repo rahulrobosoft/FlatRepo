@@ -2,7 +2,7 @@
     <p>Are you sure you want to remove all your favourites?</p>
 
     <div class="btns">
-        <button [mat-dialog-close]="true">No</button>
-        <button [mat-dialog-close]="true" (click)="clearAll()">Yes</button>
+        <button [mat-dialog-close]="true" (click)="cancel()">No</button>
+        <button [mat-dialog-close]="true" (click)="confirm()">Yes</button>
     </div>
 </div>

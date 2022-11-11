@@ -14,11 +14,9 @@ export class WeatherService {
   constructor(private http : HttpClient) { }
 
   getWeatherInfo(cityName:string){
-    return this.http.get(`${API_URL}/weather?q=${cityName}&appid=${API_KEY}`).pipe(catchError(async (err) => this.catchError(err)));
+    return this.http.get(`${API_URL}/weather?q=${cityName}&appid=${API_KEY}`)
   }
 
 
-  catchError(err:any){
-    alert(err.value);
-  }
+  
 }

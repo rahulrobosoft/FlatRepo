@@ -11,44 +11,91 @@ export class HeaderComponent implements OnInit {
 
   date = Date.now();
   active = 'active';
-  show='';
-
+  show = '';
+  show_search!:boolean;
   weather: any;
 
   constructor(private weatherService: WeatherService, private router: Router) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   searchCity(city: string) {
-    this.weatherService.getWeatherInfo(city).subscribe(data => {
-      localStorage.setItem('searchedCity', JSON.stringify(data));
-      this.weather = data;
-      this.addAllSearchedCity(this.weather)
 
-      this.router.navigate(['home'])
-        .then(() => {
-          window.location.reload();
-        });
-    })
+  
+    if(city){
+      this.weatherService.getWeatherInfo(city).subscribe(data => {
+        localStorage.setItem('searchedCity', JSON.stringify(data));
+        this.weather = data;
+        console.log(this.weather);
+        
+        this.addAllSearchedCity(this.weather)
+        this.refresh();
+      }, 
+      
+      (error) => {
+        alert('City Not Found !!');
+        this.refresh();
+      })
+    } 
+    else{
+      alert('Enter City name');
+    }
+    this.show_search = false;
   }
 
   addAllSearchedCity(data: any) {
+    console.log(data['name']);
+    let city:any;
     let cities = [];
     let sc: any;
+    let FromIndex;
+    const toIndex = 0;
     if (localStorage.getItem('Cities')) {
       sc = localStorage.getItem('Cities');
       cities = JSON.parse(sc);
-      cities = [data, ...cities];
+
+
+      city = cities.find((city:any) => {
+        return city['name'] == data['name'];
+      })
+
+      console.log(city);
+        if(city == undefined)
+        {
+          cities = [data, ...cities];
+        } 
+        else {
+          FromIndex = cities.indexOf(city);
+          const element = cities.splice(FromIndex,1)[0];
+          cities.splice(toIndex,0,element);
+        }
     }
     else { cities = [data]; }
     localStorage.setItem('Cities', JSON.stringify(cities));
+    
   }
 
-  bringMenu(){
+  bringMenu() {
     this.show = 'show';
   }
 
+  close() {
+    this.show = '';
+  }
+
+  searchMobile(){
+    this.show_search = true;
+  }
+
+  goBack(){
+    this.show_search = false;
+  }
+
+  refresh(){
+    this.router.navigate(['home'])
+    .then(() => {
+      window.location.reload();
+    });
+  }
 
 }

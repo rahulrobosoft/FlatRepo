@@ -1,8 +1,8 @@
-*{
-    color:#ffffff;
+* {
+    color: #ffffff;
 }
 
-.no-favs{
+.no-favs {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,72 +10,135 @@
     margin-top: 25%;
 }
 
-.no-favs p{
+.no-favs p {
     margin-top: 2%;
     font-size: 18px;
 }
 
-.status{
+.status {
     margin-top: 2%;
     display: flex;
     justify-content: space-between;
 }
 
-.row{
+.row {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     background: rgba(255, 255, 255, 0.16);
-    /* opacity: 0.2; */
-    height:73px;
+    height: 73px;
     align-items: center;
     margin-bottom: 2px;
+    flex-direction: row;
+    position: relative;
 
 }
 
-.row div:first-child{
+.row div:first-child {
     margin-left: 15px;
 }
 
-.row div:last-child{
+.row div:last-child {
     margin-right: 15px;
 }
-.row .name{
+
+.row .name {
     width: 150px;
+
+
 }
-.center{
-    width:250px;
+
+.center {
+    width: 250px;
     /* border: 1px solid black; */
-    justify-content:flex-start;
+    justify-content: flex-start;
 }
-.center img{
+
+.center img {
     height: 48px;
-    width:48px;
+    width: 48px;
     margin-right: 25px;
 }
 
-.degree{
+.degree {
     font-size: 32px;
     font-weight: 500;
     margin-top: 12px;
     margin-right: 20px;
-    width:50px;
+    width: 50px;
 
 }
 
-.degree span{
+.degree span {
     font-size: 16px;
 }
 
-.climate{
+.climate {
     font-size: 18px;
     margin-top: 14px;
-    /* margin-right: 20px; */
+
+}
+.list{
+    padding-bottom: 20px;
+}
+
+.no-add {
+    color: #fff;
+}
+
+.add {
+    color: var(--yellow);
+}
+
+mat-icon {
+    position: sticky;
 }
 
 
-.no-add{
-    color:#fff;
-}
-.add{
-    color:#FFD639;
+@media(max-width:768px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    mat-icon {
+        position: absolute;
+        left: 90%;
+        top: 30%;
+    }
+
+    .list,
+    .status {
+        padding: 10px 15px;
+    }
+
+    .row .name {
+        margin-top: 10px;
+
+    }
+
+    .row #name {
+        color: var(--yellow);
+        font-weight: 500;
+    }
+
+    .center {
+        margin-top: -15px;
+    }
+
+    .center img {
+
+        margin-right: 0px;
+    }
+
+    .degree {
+        font-size: 22px;
+        margin-right: 10px;
+    }
+
+    .climate {
+        margin-top: 12px;
+        font-size: 16px;
+    }
 }

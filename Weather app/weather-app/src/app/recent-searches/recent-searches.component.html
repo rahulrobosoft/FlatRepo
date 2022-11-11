@@ -3,7 +3,7 @@
     <p>No Recent Search</p>
 </div>
 
-<div class="status"  *ngIf="recent_searches">
+<div class="status" *ngIf="recent_searches">
     <p>You recently searched for</p>
     <p class="btn" (click)="clearAll()">Clear all</p>
 
@@ -13,8 +13,9 @@
 
 <div class="list ">
     <div class="row d-flex" *ngFor="let search of recent_searches">
+
         <div class="name">
-            <p>{{search['name']}}, Karnataka</p>
+            <p id="name">{{search['name']}}, Karnataka</p>
         </div>
         <div class="d-flex center">
             <img src="http://openweathermap.org/img/wn/{{search['weather'][0].icon}}@2x.png" alt="">
@@ -22,12 +23,15 @@
             <p class="climate">{{search['weather'][0].main}}</p>
         </div>
         <div>
-            <!-- <mat-icon matSuffix>favorite_border</mat-icon> -->
-          
-                {{check(search['name'])}}
-            
-        <mat-icon *ngIf="fav" matSuffix class="add">favorite</mat-icon>
-        <mat-icon *ngIf="favB" matSuffix  >favorite_border</mat-icon>
+
+
+
+            {{check(search['name'])}}
+
+            <div class="icon btn">
+                <mat-icon *ngIf="favB"  matSuffix>favorite_border</mat-icon>
+                <mat-icon *ngIf="fav" matSuffix [ngClass]="add">favorite</mat-icon>
+            </div>
 
 
         </div>

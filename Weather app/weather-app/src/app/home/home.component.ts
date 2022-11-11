@@ -13,31 +13,30 @@ const API_KEY = environment.API_KEY;
 export class HomeComponent implements OnInit {
 
   fb: any;
-  add = 'no-add';
-  it = 'Add to favorite';
   details: any;
   temperature: any;
-  celsius: boolean = true;
-  farhan: boolean = false;
-  active1 = 'active';
-  active2 = '';
   weatherIcon: any;
   curr1: any;
   fav1: any;
-
   currentCity: any;
+
+  celsius: boolean = true;
+  farhan: boolean = false;
+
+  add = 'no-add';
+  it = 'Add to favorite';
+  active1 = 'active';
+  active2 = '';
+
   constructor(private http: HttpClient,) { }
 
   ngOnInit() {
 
-
-
     this.currentCity = localStorage.getItem('searchedCity');
     this.currentCity = JSON.parse(this.currentCity);
+
     this.temperature = this.currentCity['main'].temp;
     this.weatherIcon = this.currentCity['weather'][0].icon;
-
-
 
     this.fb = 'favorite_border';
     if (localStorage.getItem('favorites')) {
@@ -57,13 +56,7 @@ export class HomeComponent implements OnInit {
           this.it = 'Add to favorite';
         };
       }
-
     }
-
-
-
-
-
   }
 
   addToFav() {
@@ -71,9 +64,12 @@ export class HomeComponent implements OnInit {
     this.fb == 'favorite_border' ? this.fb = 'favorite' : this.fb = 'favorite_border';
     this.add == 'no-add' ? this.add = 'add' : this.add = 'no-add';
     this.it == 'Add to favorite' ? this.it = 'Added to favorite' : this.it = 'Add to favorite';
+
+
     let favorites: string | any[] = [];
     let fav: any;
     let curr: any;
+
     if (this.fb == 'favorite') {
 
       if (localStorage.getItem('favorites')) {
@@ -88,7 +84,6 @@ export class HomeComponent implements OnInit {
 
     }
     else {
-
       fav = localStorage.getItem('favorites');
       fav = JSON.parse(fav);
       console.log(fav);
@@ -99,9 +94,6 @@ export class HomeComponent implements OnInit {
 
       fav.splice(curr.index, 1);
       localStorage.setItem('favorites', JSON.stringify(fav));
-
-
-
     }
   }
 
@@ -110,7 +102,6 @@ export class HomeComponent implements OnInit {
     this.farhan = false;
     this.active1 = 'active';
     this.active2 = '';
-    // this.active == '' ? this.active = 'active' : this.active = '';
   }
 
   changeToFarhan() {

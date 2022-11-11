@@ -8,21 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class RecentSearchesComponent implements OnInit {
 
   weatherIcon:any;
-  constructor() { }
   recent_searches:any;
   favorite_cities:any;
-  show:boolean=false;
 
-  fb='favorite';
+  // fb='favorite_border';
   add='add';
+  // add1='';
+
   fav!:boolean;
   favB:boolean=true;
+  show:boolean=false;
+
+  constructor() { }
 
   ngOnInit(): void {
 
-    this.recent_searches = localStorage.getItem('Cities')
-    this.recent_searches = JSON.parse(this.recent_searches);
-    // this.weatherIcon = this.recent_searches['weather'][0].icon;
+    this.update();
 
     if(localStorage.getItem('Cities')){
       this.show = false;
@@ -30,7 +31,6 @@ export class RecentSearchesComponent implements OnInit {
     else{
       this.show = true;
     }
-    // console.log(this.recent_searches);
 
     this.favorite_cities = localStorage.getItem('favorites');
     this.favorite_cities = JSON.parse(this.favorite_cities);
@@ -39,10 +39,12 @@ export class RecentSearchesComponent implements OnInit {
 
   clearAll(){
     localStorage.removeItem('Cities');
-    window.location.reload();
+    this.update();
+    this.show = true;
   }
 
   check(name:string){
+    if(this.favorite_cities){
       for(let fc of this.favorite_cities){
         if(fc['name'] == name){
           this.fav = true;
@@ -54,6 +56,14 @@ export class RecentSearchesComponent implements OnInit {
           this.favB = true;
         }
       }
+    }
+     
+  }
+
+  update(){
+   
+      this.recent_searches = localStorage.getItem('Cities')
+      this.recent_searches = JSON.parse(this.recent_searches);
   }
 
 }
