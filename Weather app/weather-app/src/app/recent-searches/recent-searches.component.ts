@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RedirectService } from '../service/redirect.service';
 
 @Component({
   selector: 'app-recent-searches',
@@ -19,22 +21,12 @@ export class RecentSearchesComponent implements OnInit {
   favB:boolean=true;
   show:boolean=false;
 
-  constructor() { }
+  constructor(private router:Router,private redirectService : RedirectService ) { }
 
   ngOnInit(): void {
-
     this.update();
-
-    if(localStorage.getItem('Cities')){
-      this.show = false;
-    }
-    else{
-      this.show = true;
-    }
-
     this.favorite_cities = localStorage.getItem('favorites');
     this.favorite_cities = JSON.parse(this.favorite_cities);
-
   }
 
   clearAll(){
@@ -57,13 +49,15 @@ export class RecentSearchesComponent implements OnInit {
         }
       }
     }
-     
   }
 
   update(){
-   
       this.recent_searches = localStorage.getItem('Cities')
       this.recent_searches = JSON.parse(this.recent_searches);
+  }
+
+  redirectToHome(city:any){
+  this.redirectService.redirectToHome(city);
   }
 
 }

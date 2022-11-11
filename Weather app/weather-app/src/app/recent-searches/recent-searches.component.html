@@ -1,4 +1,4 @@
-<div class="no-favs" *ngIf="show">
+<div class="no-favs" *ngIf="recent_searches === null">
     <img src="../../assets/icon_nothing.png" alt="">
     <p>No Recent Search</p>
 </div>
@@ -12,7 +12,7 @@
 </div>
 
 <div class="list ">
-    <div class="row d-flex" *ngFor="let search of recent_searches">
+    <div class="row d-flex btn" *ngFor="let search of recent_searches" (click)="redirectToHome(search)">
 
         <div class="name">
             <p id="name">{{search['name']}}, Karnataka</p>

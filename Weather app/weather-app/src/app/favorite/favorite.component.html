@@ -11,7 +11,7 @@
 </div>
 
 <div class="list"  >
-    <div class="row d-flex" *ngFor="let favs of favorites">
+    <div class="row d-flex btn" *ngFor="let favs of favorites" (click)="redirectToHome(favs)">
         <div class="name">
             <p id="name">{{favs['name']}}, Karnataka</p>
         </div>

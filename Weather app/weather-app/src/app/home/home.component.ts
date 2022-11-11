@@ -47,13 +47,13 @@ export class HomeComponent implements OnInit {
         if (f['name'] == this.currentCity['name']) {
           this.fb = 'favorite';
           this.add = 'add';
-          this.it = 'Added to favorite';
+          this.it = 'Added to favourite';
           break;
         }
         else {
           this.fb = 'favorite_border'
           this.add = 'no-add';
-          this.it = 'Add to favorite';
+          this.it = 'Add to favourite';
         };
       }
     }
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
 
     this.fb == 'favorite_border' ? this.fb = 'favorite' : this.fb = 'favorite_border';
     this.add == 'no-add' ? this.add = 'add' : this.add = 'no-add';
-    this.it == 'Add to favorite' ? this.it = 'Added to favorite' : this.it = 'Add to favorite';
+    this.it == 'Add to favourite' ? this.it = 'Added to favourite' : this.it = 'Add to favourite';
 
 
     let favorites: string | any[] = [];

@@ -65,12 +65,14 @@ export class HeaderComponent implements OnInit {
           cities = [data, ...cities];
         } 
         else {
-          FromIndex = cities.indexOf(city);
-          const element = cities.splice(FromIndex,1)[0];
+          FromIndex = cities.indexOf(city); 
+          const element = cities.splice(FromIndex,1)[0]; 
           cities.splice(toIndex,0,element);
         }
     }
-    else { cities = [data]; }
+    else {
+       cities = [data]; 
+      }
     localStorage.setItem('Cities', JSON.stringify(cities));
     
   }

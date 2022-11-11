@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RemoveFavsComponent } from '../remove-favs/remove-favs.component';
 import { Router } from '@angular/router';
+import { RedirectService } from '../service/redirect.service';
 
 @Component({
   selector: 'app-favorite',
@@ -15,12 +16,13 @@ export class FavoriteComponent implements OnInit {
   favorites: any;
   fav: any;
   curr: any;
+  searchedCity:any;
 
   fb = 'favorite';
   add = 'add';
   status!:boolean;
 
-  constructor(private dialog: MatDialog, private router: Router) { }
+  constructor(private dialog: MatDialog, private router: Router,private redirectService: RedirectService) { }
 
   ngOnInit() {
     this.update();
@@ -37,11 +39,7 @@ export class FavoriteComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       console.log(data.data);
       this.update();
-      // this.show=true;
-      
     })
-
-
   }
 
   removeFromFav(name: string) {
@@ -62,9 +60,9 @@ export class FavoriteComponent implements OnInit {
   update(){
     this.favorites = localStorage.getItem('favorites');
     this.favorites = JSON.parse(this.favorites);
-    
+  }
 
-
- 
+  redirectToHome(city:any){
+    this.redirectService.redirectToHome(city);
   }
 }

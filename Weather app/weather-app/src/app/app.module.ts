@@ -13,6 +13,7 @@ import { RemoveFavsComponent } from './remove-favs/remove-favs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DegreeConversionPipe } from './degree-conversion.pipe';
 import { WeatherService } from './service/weather.service';
+import { RedirectService } from './service/redirect.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { WeatherService } from './service/weather.service';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [WeatherService],
+  providers: [WeatherService,RedirectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

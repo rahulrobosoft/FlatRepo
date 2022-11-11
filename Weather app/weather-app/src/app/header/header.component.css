@@ -225,6 +225,8 @@ hr {
         height: 145%;
         color:black;
         transition: all 1s ease-out;
+        z-index:100;
+
     }
 
     #search_bg input{
