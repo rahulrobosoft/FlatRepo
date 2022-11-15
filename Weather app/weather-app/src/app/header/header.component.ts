@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../service/weather.service';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-header',
@@ -12,30 +14,43 @@ export class HeaderComponent implements OnInit {
   date = Date.now();
   active = 'active';
   show = '';
+  state :any;
   show_search!: boolean;
+  value='';
+
+  reactiveForm!:FormGroup;
 
   constructor(private weatherService: WeatherService, private router: Router) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+      this.reactiveForm = new FormGroup({
+        city : new FormControl(null)
+      })
+  }
 
-  searchCity(city: string) {
+  searchCity() {
 
-    if (city) {
-      this.weatherService.getWeatherInfo(city).subscribe({
+   
+    if (this.reactiveForm.get('city')?.value) {
+      console.log(this.reactiveForm.get('city')?.value);
+
+      this.weatherService.getWeatherInfo(this.reactiveForm.get('city')?.value).subscribe({
         next: (data) => {
           localStorage.setItem('searchedCity', JSON.stringify(data));
           this.addAllSearchedCity(data);
-          this.refresh();
+          // this.refresh();
         }, error: (error) => {
           alert('City Not Found !!');
-          this.refresh();
+          // this.refresh();
         }
       })
     }
-    else {
-      alert('Enter City name');
-    }
     this.show_search = false;
+    this.reactiveForm.reset();
+    this.router.navigate(['home']);
+
+   
+
   }
 
   addAllSearchedCity(data: any) {
@@ -63,6 +78,8 @@ export class HeaderComponent implements OnInit {
       cities = [data];
     }
     localStorage.setItem('Cities', JSON.stringify(cities));
+
+
 
   }
 
@@ -98,8 +115,8 @@ export class HeaderComponent implements OnInit {
       });
   }
 
-  enterSubmit(event: any, city: any) {
+  enterSubmit(event: any) {
     if (event.keyCode === 13)
-      this.searchCity(city);
+      this.searchCity();
   }
 }

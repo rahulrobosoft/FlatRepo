@@ -18,6 +18,7 @@ import { AddToFavoriteService } from './service/add-to-favorite.service';
 import { RemoveFromFavoriteService } from './service/remove-from-favorite.service';
 import { UpdateFavoritesService } from './service/update-favorites.service';
 import { UpdateRecentSearchesService } from './service/update-recent-searches.service';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { UpdateRecentSearchesService } from './service/update-recent-searches.se
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     WeatherService,

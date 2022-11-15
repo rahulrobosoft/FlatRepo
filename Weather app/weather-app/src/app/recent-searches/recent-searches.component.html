@@ -12,14 +12,14 @@
 </div>
 
 <div class="list ">
-    <div class="row d-flex btn" *ngFor="let search of recent_searches;index as i" (click)="redirectToHome(search)">
+    <div class="row d-flex btn" *ngFor="let search of recent_searches" (click)="redirectToHome(search)">
 
         <div class="name">
             <p id="name">{{search['name']}}, Karnataka</p>
         </div>
         <div class="d-flex center">
             <img src="http://openweathermap.org/img/wn/{{search['weather'][0].icon}}@2x.png" alt="">
-            <p class="degree">{{search['main'].temp | degreeConversion}}<span>&#176;C</span></p>
+            <p class="degree">{{search['main'].temp | degreeConversion}}&#176;<span>C</span></p>
             <p class="climate">{{search['weather'][0].main}}</p>
         </div>
         <div>

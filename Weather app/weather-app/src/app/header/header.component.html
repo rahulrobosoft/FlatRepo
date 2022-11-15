@@ -7,10 +7,10 @@
         <img src="../../assets/logo_web.png" alt="Logo" id="logo">
     </div>
 
-    <div id="ip_search_pc">
-        <input type="text" id="search" placeholder="Search city" autofocus="autofocus" #city (keydown)="enterSubmit($event, city.value)">
-        <mat-icon id="icon" matSuffix (click)="searchCity(city.value)"  >search</mat-icon>
-    </div>
+    <form id="ip_search_pc" [formGroup]="reactiveForm" (ngSubmit)="searchCity()">
+        <input type="text" formControlName = "city" name="city" id="search"  placeholder="Search city" autofocus="autofocus"  (keydown)="enterSubmit($event)">
+        <mat-icon id="icon" matSuffix >search</mat-icon>
+    </form>
 
     <div id="ip_search_mobile">
         <mat-icon id="icon" matSuffix (click)="searchMobile()">search</mat-icon>
@@ -49,8 +49,8 @@
 <div id="search_bg" *ngIf="show_search">
     <div class="bg">
         <mat-icon id="back" class="btn" matSuffix (click)="goBack()">arrow_back</mat-icon>
-        <input type="text" id="searchBox" autofocus="autofocus" placeholder="Search city" #city>
-        <mat-icon id="iconMobile" matSuffix (click)="searchCity(city.value)">search</mat-icon>
+        <input type="text" id="searchBox" [value]='value' autofocus="autofocus" placeholder="Search city" #city (keydown)="enterSubmit($event)">
+        <mat-icon id="iconMobile" matSuffix (click)="searchCity()">search</mat-icon>
     </div>
 
 </div>

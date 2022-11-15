@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AddToFavoriteService } from '../service/add-to-favorite.service';
 import { RemoveFromFavoriteService } from '../service/remove-from-favorite.service';
+import { Router } from '@angular/router';
+import { WeatherService } from '../service/weather.service';
 
 const API_URL = environment.API_URL;
 const API_KEY = environment.API_KEY;
@@ -29,16 +31,26 @@ export class HomeComponent implements OnInit {
   it = 'Add to favorite';
   active1 = 'active';
   active2 = '';
+  currentState:any;
 
-  constructor(private http: HttpClient,private atf : AddToFavoriteService,private rff : RemoveFromFavoriteService) { }
+  constructor(private http: HttpClient,private atf : AddToFavoriteService,private rff : RemoveFromFavoriteService,private router: Router,private weatherService : WeatherService) { }
 
   ngOnInit() {
 
-    this.currentCity = localStorage.getItem('searchedCity');
-    this.currentCity = JSON.parse(this.currentCity);
-
+    
+    
+    this.currentCity = JSON.parse(localStorage.getItem('searchedCity') as any);
     this.temperature = this.currentCity['main'].temp;
     this.weatherIcon = this.currentCity['weather'][0].icon;
+
+    if(JSON.parse(localStorage.getItem('degree')as any) === 'celsius'){
+        this.changeToCelsius();
+    }
+    else{
+      this.changeToFarhan();
+    }
+    
+    localStorage.setItem('url',JSON.stringify(this.router.url))
 
     this.fb = 'favorite_border';
     if (localStorage.getItem('favorites')) {
@@ -80,6 +92,7 @@ export class HomeComponent implements OnInit {
     this.farhan = false;
     this.active1 = 'active';
     this.active2 = '';
+    localStorage.setItem('degree',JSON.stringify('celsius'));
   }
 
   changeToFarhan() {
@@ -87,6 +100,18 @@ export class HomeComponent implements OnInit {
     this.farhan = true;
     this.active1 = '';
     this.active2 = 'active';
+    localStorage.setItem('degree',JSON.stringify('farhan'));
+
   }
 
+  update(){
+    this.currentCity = JSON.parse(localStorage.getItem('searchedCity') as any);
+    this.temperature = this.currentCity['main'].temp;
+    this.weatherIcon = this.currentCity['weather'][0].icon;
+  }
+  
+
+ 
+
 }
+

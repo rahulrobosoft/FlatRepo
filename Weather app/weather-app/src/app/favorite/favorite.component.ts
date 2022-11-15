@@ -16,6 +16,7 @@ export class FavoriteComponent implements OnInit {
   favorites: any;
 
   constructor(
+    private router: Router,
     private dialog: MatDialog, 
     private redirectService: RedirectService,
     private rff : RemoveFromFavoriteService,
@@ -24,6 +25,7 @@ export class FavoriteComponent implements OnInit {
 
   ngOnInit() {
     this.update();
+    localStorage.setItem('url',JSON.stringify(this.router.url))
   }
 
   openDialog() {

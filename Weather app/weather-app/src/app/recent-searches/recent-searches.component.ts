@@ -25,6 +25,7 @@ export class RecentSearchesComponent implements OnInit {
   show: boolean = false;
 
   constructor(
+    private router: Router,
     private redirectService: RedirectService, 
     private atf: AddToFavoriteService, 
     private rff: RemoveFromFavoriteService,
@@ -35,6 +36,8 @@ export class RecentSearchesComponent implements OnInit {
   ngOnInit(): void {
     this.updateRecentSearches();
     this.updateFavorites();
+    localStorage.setItem('url',JSON.stringify(this.router.url))
+    
   }
 
   clearAll() {
