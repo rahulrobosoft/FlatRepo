@@ -14,7 +14,7 @@
 
     <div class="temperature">
         <p id="temp" *ngIf="celsius">{{temperature | degreeConversion }}</p>
-        <p id="temp" *ngIf="farhan">{{temperature}}</p>
+        <p id="temp" *ngIf="farhan">{{temperature | farhanconversion}}</p>
         <div id="degree">
             <button (click)="changeToCelsius();" [ngClass]="active1">&#176; C</button>
             <button (click)="changeToFarhan();" [ngClass]="active2">&#176; F</button>

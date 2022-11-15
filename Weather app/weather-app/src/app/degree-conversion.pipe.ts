@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DegreeConversionPipe implements PipeTransform {
 
   transform(value: any, ...args: unknown[]): any {
-    return (value -  273.15).toFixed(0);
+    return ((value -  273.15)).toFixed(0);
   }
 
 }

@@ -8,8 +8,8 @@
     </div>
 
     <div id="ip_search_pc">
-        <input type="text" id="search" placeholder="Search city" #city>
-        <mat-icon id="icon" matSuffix (click)="searchCity(city.value)">search</mat-icon>
+        <input type="text" id="search" placeholder="Search city" autofocus="autofocus" #city (keydown)="enterSubmit($event, city.value)">
+        <mat-icon id="icon" matSuffix (click)="searchCity(city.value)"  >search</mat-icon>
     </div>
 
     <div id="ip_search_mobile">

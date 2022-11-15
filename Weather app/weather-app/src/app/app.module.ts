@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { DegreeConversionPipe } from './degree-conversion.pipe';
 import { WeatherService } from './service/weather.service';
 import { RedirectService } from './service/redirect.service';
+import { FarhanconversionPipe } from './farhanconversion.pipe';
+import { AddToFavoriteService } from './service/add-to-favorite.service';
+import { RemoveFromFavoriteService } from './service/remove-from-favorite.service';
+import { UpdateFavoritesService } from './service/update-favorites.service';
+import { UpdateRecentSearchesService } from './service/update-recent-searches.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,9 @@ import { RedirectService } from './service/redirect.service';
     FavoriteComponent,
     RecentSearchesComponent,
     RemoveFavsComponent,
-    DegreeConversionPipe
+    DegreeConversionPipe,
+    FarhanconversionPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,14 @@ import { RedirectService } from './service/redirect.service';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [WeatherService,RedirectService],
+  providers: [
+    WeatherService,
+    RedirectService,
+    AddToFavoriteService,
+    RemoveFromFavoriteService,
+    UpdateFavoritesService,
+    UpdateRecentSearchesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,7 +12,7 @@
 </div>
 
 <div class="list ">
-    <div class="row d-flex btn" *ngFor="let search of recent_searches" (click)="redirectToHome(search)">
+    <div class="row d-flex btn" *ngFor="let search of recent_searches;index as i" (click)="redirectToHome(search)">
 
         <div class="name">
             <p id="name">{{search['name']}}, Karnataka</p>
@@ -29,8 +29,8 @@
             {{check(search['name'])}}
 
             <div class="icon btn">
-                <mat-icon *ngIf="favB"  matSuffix>favorite_border</mat-icon>
-                <mat-icon *ngIf="fav" matSuffix [ngClass]="add">favorite</mat-icon>
+                <mat-icon *ngIf="favB" matSuffix (click)="addToFav(search)">favorite_border</mat-icon>
+                <mat-icon *ngIf="fav" matSuffix [ngClass]="add" (click)="removeFromFav(search)">favorite</mat-icon>
             </div>
 
 

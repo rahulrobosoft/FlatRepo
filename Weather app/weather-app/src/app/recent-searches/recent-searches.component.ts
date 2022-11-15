@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RedirectService } from '../service/redirect.service';
-
+import { AddToFavoriteService } from '../service/add-to-favorite.service';
+import { RemoveFromFavoriteService } from '../service/remove-from-favorite.service';
+import { UpdateRecentSearchesService } from '../service/update-recent-searches.service';
+import { UpdateFavoritesService } from '../service/update-favorites.service';
 @Component({
   selector: 'app-recent-searches',
   templateUrl: './recent-searches.component.html',
@@ -9,41 +12,46 @@ import { RedirectService } from '../service/redirect.service';
 })
 export class RecentSearchesComponent implements OnInit {
 
-  weatherIcon:any;
-  recent_searches:any;
-  favorite_cities:any;
+  weatherIcon: any;
+  recent_searches: any;
+  favorite_cities: any;
 
   // fb='favorite_border';
-  add='add';
+  add = 'add';
   // add1='';
 
-  fav!:boolean;
-  favB:boolean=true;
-  show:boolean=false;
+  fav!: boolean;
+  favB: boolean = true;
+  show: boolean = false;
 
-  constructor(private router:Router,private redirectService : RedirectService ) { }
+  constructor(
+    private redirectService: RedirectService, 
+    private atf: AddToFavoriteService, 
+    private rff: RemoveFromFavoriteService,
+    private uf: UpdateFavoritesService,
+    private urs : UpdateRecentSearchesService,
+    ) { }
 
   ngOnInit(): void {
-    this.update();
-    this.favorite_cities = localStorage.getItem('favorites');
-    this.favorite_cities = JSON.parse(this.favorite_cities);
+    this.updateRecentSearches();
+    this.updateFavorites();
   }
 
-  clearAll(){
+  clearAll() {
     localStorage.removeItem('Cities');
-    this.update();
+    this.updateRecentSearches();
     this.show = true;
   }
 
-  check(name:string){
-    if(this.favorite_cities){
-      for(let fc of this.favorite_cities){
-        if(fc['name'] == name){
+  check(name: string) {
+    if (this.favorite_cities) {
+      for (let fc of this.favorite_cities) {
+        if (fc['name'] == name) {
           this.fav = true;
           this.favB = false;
           break;
         }
-        else{
+        else {
           this.fav = false;
           this.favB = true;
         }
@@ -51,13 +59,40 @@ export class RecentSearchesComponent implements OnInit {
     }
   }
 
-  update(){
-      this.recent_searches = localStorage.getItem('Cities')
-      this.recent_searches = JSON.parse(this.recent_searches);
+  
+
+  addToFav(city: any) {
+    this.atf.addToFavoriteArray(city);
+    this.updateRecentSearches();
+    this.updateFavorites();
   }
 
-  redirectToHome(city:any){
-  this.redirectService.redirectToHome(city);
+  removeFromFav(city: any) {
+
+    this.favorite_cities = this.rff.removeFromFavoriteArray(city);
+
+    if (this.favorite_cities.length >= 1) {
+      this.updateRecentSearches();
+      this.updateFavorites();
+    } 
+    else if(this.favorite_cities.length == 0){
+      this.favB = true;
+      this.fav = false;
+      this.updateRecentSearches();
+    }
+
+  }
+
+  updateRecentSearches() {
+    this.recent_searches = this.urs.updateRecentSearches();
+  }
+
+  updateFavorites() {
+    this.favorite_cities = this.uf.updateFavorites();
+  }
+
+  redirectToHome(city: any) {
+    this.redirectService.redirectToHome(city);
   }
 
 }

@@ -3,7 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { RemoveFavsComponent } from '../remove-favs/remove-favs.component';
 import { Router } from '@angular/router';
 import { RedirectService } from '../service/redirect.service';
-
+import { RemoveFromFavoriteService } from '../service/remove-from-favorite.service';
+import { UpdateFavoritesService } from '../service/update-favorites.service';
 @Component({
   selector: 'app-favorite',
   templateUrl: './favorite.component.html',
@@ -12,22 +13,17 @@ import { RedirectService } from '../service/redirect.service';
 
 export class FavoriteComponent implements OnInit {
 
-  show!: boolean;
   favorites: any;
-  fav: any;
-  curr: any;
-  searchedCity:any;
 
-  fb = 'favorite';
-  add = 'add';
-  status!:boolean;
-
-  constructor(private dialog: MatDialog, private router: Router,private redirectService: RedirectService) { }
+  constructor(
+    private dialog: MatDialog, 
+    private redirectService: RedirectService,
+    private rff : RemoveFromFavoriteService,
+    private uf : UpdateFavoritesService
+    ) { }
 
   ngOnInit() {
     this.update();
-
-   
   }
 
   openDialog() {
@@ -35,34 +31,19 @@ export class FavoriteComponent implements OnInit {
       height: "210px",
       width: "458px",
     })
-
-    dialogRef.afterClosed().subscribe(data => {
-      console.log(data.data);
-      this.update();
-    })
+    dialogRef.afterClosed().subscribe(() => this.update());
   }
 
-  removeFromFav(name: string) {
-    console.log(name);
-    this.fav = localStorage.getItem('favorites');
-    this.fav = JSON.parse(this.fav);
-
-    this.curr = this.fav.find((cur: any) => {
-      return cur['name'] === name;
-    })
-    
-    this.fav.splice(this.fav.indexOf(this.curr), 1);
-    this.favorites = this.fav;
-    localStorage.setItem('favorites', JSON.stringify(this.fav));
+  removeFromFav(city: any) {
+    this.favorites = this.rff.removeFromFavoriteArray(city)
     this.update();
-  }
-
-  update(){
-    this.favorites = localStorage.getItem('favorites');
-    this.favorites = JSON.parse(this.favorites);
   }
 
   redirectToHome(city:any){
     this.redirectService.redirectToHome(city);
+  }
+
+  update(){
+    this.favorites = this.uf.updateFavorites();
   }
 }

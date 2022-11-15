@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { AddToFavoriteService } from '../service/add-to-favorite.service';
+import { RemoveFromFavoriteService } from '../service/remove-from-favorite.service';
 
 const API_URL = environment.API_URL;
 const API_KEY = environment.API_KEY;
@@ -17,7 +19,7 @@ export class HomeComponent implements OnInit {
   temperature: any;
   weatherIcon: any;
   curr1: any;
-  fav1: any;
+  fav: any;
   currentCity: any;
 
   celsius: boolean = true;
@@ -28,7 +30,7 @@ export class HomeComponent implements OnInit {
   active1 = 'active';
   active2 = '';
 
-  constructor(private http: HttpClient,) { }
+  constructor(private http: HttpClient,private atf : AddToFavoriteService,private rff : RemoveFromFavoriteService) { }
 
   ngOnInit() {
 
@@ -40,10 +42,10 @@ export class HomeComponent implements OnInit {
 
     this.fb = 'favorite_border';
     if (localStorage.getItem('favorites')) {
-      this.fav1 = localStorage.getItem?.('favorites');
-      this.fav1 = JSON.parse(this.fav1);
+      this.fav = localStorage.getItem?.('favorites');
+      this.fav = JSON.parse(this.fav);
 
-      for (let f of this.fav1) {
+      for (let f of this.fav) {
         if (f['name'] == this.currentCity['name']) {
           this.fb = 'favorite';
           this.add = 'add';
@@ -65,35 +67,11 @@ export class HomeComponent implements OnInit {
     this.add == 'no-add' ? this.add = 'add' : this.add = 'no-add';
     this.it == 'Add to favourite' ? this.it = 'Added to favourite' : this.it = 'Add to favourite';
 
-
-    let favorites: string | any[] = [];
-    let fav: any;
-    let curr: any;
-
     if (this.fb == 'favorite') {
-
-      if (localStorage.getItem('favorites')) {
-        fav = localStorage.getItem('favorites');
-        favorites = JSON.parse(fav);
-        favorites = [this.currentCity, ...favorites];
-      }
-      else {
-        favorites = [this.currentCity];
-      }
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-
+      this.atf.addToFavoriteArray(this.currentCity);
     }
     else {
-      fav = localStorage.getItem('favorites');
-      fav = JSON.parse(fav);
-      console.log(fav);
-
-      curr = fav.find((cur: any) => {
-        return cur['name'] === this.currentCity['name'];
-      })
-
-      fav.splice(curr.index, 1);
-      localStorage.setItem('favorites', JSON.stringify(fav));
+      this.rff.removeFromFavoriteArray(this.currentCity);
     }
   }
 

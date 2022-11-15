@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,4 +13,5 @@ export class RedirectService {
     localStorage.setItem('searchedCity', JSON.stringify(city));
     this.router.navigate(['home']);
   }
+  
 }
