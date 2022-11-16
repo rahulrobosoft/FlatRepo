@@ -50,7 +50,7 @@
 }
 
 .row .name {
-    width: 160px;
+    width: 130px;
     margin-top: 7px;
     font-size: 16px;
     font-weight: 500;
@@ -59,7 +59,7 @@
 }
 
 .center {
-    width: 250px;
+    width: 300px;
     /* border: 1px solid black; */
     justify-content: flex-start;
 }

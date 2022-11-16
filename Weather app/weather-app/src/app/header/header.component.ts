@@ -22,41 +22,29 @@ export class HeaderComponent implements OnInit {
 
   constructor(private weatherService: WeatherService, private router: Router) { }
 
-  ngOnInit(): void { 
+  ngOnInit(){ 
       this.reactiveForm = new FormGroup({
         city : new FormControl(null)
       })
-
-      
   }
 
   searchCity() {
-
-   
     if (this.reactiveForm.get('city')?.value) {
-      console.log(this.reactiveForm.get('city')?.value);
-
       this.weatherService.getWeatherInfo(this.reactiveForm.get('city')?.value).subscribe({
         next: (data) => {
           localStorage.setItem('searchedCity', JSON.stringify(data));
-          this.addAllSearchedCity(data);
-          // this.refresh();
-        }, error: (error) => {
+          this.addAllSearchedCity(data)}, 
+        error: (error) => {
           alert('City Not Found !!');
-          // this.refresh();
         }
       })
     }
     this.show_search = false;
     this.reactiveForm.reset();
     this.router.navigate(['home']);
-
-   
-
   }
 
   addAllSearchedCity(data: any) {
-
     let city: any;
     let cities = [];
     let sc: any;
@@ -80,8 +68,6 @@ export class HeaderComponent implements OnInit {
       cities = [data];
     }
     localStorage.setItem('Cities', JSON.stringify(cities));
-
-
 
   }
 
