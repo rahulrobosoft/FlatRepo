@@ -26,6 +26,8 @@ export class HeaderComponent implements OnInit {
       this.reactiveForm = new FormGroup({
         city : new FormControl(null)
       })
+
+      
   }
 
   searchCity() {

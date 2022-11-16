@@ -11,10 +11,15 @@ const API_KEY = environment.API_KEY;
 })
 export class WeatherService {
 
+  city:string = "udupi";
   constructor(private http : HttpClient) { }
 
   getWeatherInfo(cityName:string){  
     return this.http.get(`${API_URL}/weather?q=${cityName}&appid=${API_KEY}`)
+  }
+
+  getDefaultCity(){
+    return this.http.get(`${API_URL}/weather?q=${this.city}&appid=${API_KEY}`)
   }
 
  

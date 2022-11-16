@@ -5,7 +5,12 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { RecentSearchesComponent } from './recent-searches/recent-searches.component';
 let url='\home';
-url=JSON.parse(localStorage.getItem('url')as any);
+if(localStorage.getItem('url')){
+  url=JSON.parse(localStorage.getItem('url')as any);
+}
+else{
+  url='\home';
+}
 
 const routes: Routes = [
   {path:'header',component:HeaderComponent},

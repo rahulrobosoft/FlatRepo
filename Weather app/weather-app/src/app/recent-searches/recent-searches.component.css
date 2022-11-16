@@ -46,13 +46,13 @@
 }
 
 .row div:last-child {
-    margin-right: 9px;
+    margin-right: 10px;
 }
 
 .row .name {
-    width: 150px;
-    margin-top: 8px;
-    /* align-self:center; */
+    width: 160px;
+    margin-top: 7px;
+    font-size: 16px;
     font-weight: 500;
 
 

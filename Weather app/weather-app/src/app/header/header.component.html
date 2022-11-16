@@ -47,11 +47,11 @@
 </div>
 
 <div id="search_bg" *ngIf="show_search">
-    <div class="bg">
+    <form class="bg"  [formGroup]="reactiveForm" (ngSubmit)="searchCity()">
         <mat-icon id="back" class="btn" matSuffix (click)="goBack()">arrow_back</mat-icon>
-        <input type="text" id="searchBox" [value]='value' autofocus="autofocus" placeholder="Search city" #city (keydown)="enterSubmit($event)">
-        <mat-icon id="iconMobile" matSuffix (click)="searchCity()">search</mat-icon>
-    </div>
+        <input formControlName = "city" name="city" type="text" id="searchBox"  autofocus="autofocus" placeholder="Search city"  (keydown)="enterSubmit($event)">
+        <mat-icon id="iconMobile" matSuffix >search</mat-icon>
+    </form>
 
 </div>
 <hr>

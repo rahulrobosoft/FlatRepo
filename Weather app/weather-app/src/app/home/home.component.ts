@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
   active2 = '';
   currentState:any;
 
+
   constructor(private http: HttpClient,private atf : AddToFavoriteService,private rff : RemoveFromFavoriteService,private router: Router,private weatherService : WeatherService) { }
 
   ngOnInit() {
