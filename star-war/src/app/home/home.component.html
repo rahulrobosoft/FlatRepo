@@ -1,0 +1,31 @@
+
+
+<div class="images">
+    <div class="image-box">
+        <img [src]="src[0]" alt="" class="image" (mouseenter)="hover(0)" (mouseleave)="unHover(0)">
+        <p>FILMS</p>
+    </div>
+    <div class="image-box">
+        <img [src]="src[1]" alt="" class="image" (mouseenter)="hover(1)" (mouseleave)="unHover(1)">
+        <p>SPECIES</p>
+
+    </div>
+    <div class="image-box">
+        <img [src]="src[2]" alt="" class="image" (mouseenter)="hover(2)" (mouseleave)="unHover(2)">
+        <p>PLANETS</p>
+
+    </div>
+    <div class="image-box">
+        <img [src]="src[3]" alt="" class="image" [routerLink]="'/characters'" (mouseenter)="hover(3)" (mouseleave)="unHover(3)">
+        <p>CHARACTERS</p>
+
+    </div>
+    <div class="image-box">
+        <img [src]="src[4]" alt="" class="image" (mouseenter)="hover(4)" (mouseleave)="unHover(4)">
+        <p>STARSHIP</p>
+    </div>
+    <div class="image-box">
+        <img [src]="src[5]" alt="" class="image" (mouseenter)="hover(5)" (mouseleave)="unHover(5)">
+        <P>VEHICLES</P>
+    </div>
+</div>

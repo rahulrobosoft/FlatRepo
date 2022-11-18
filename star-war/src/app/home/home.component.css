@@ -1,0 +1,32 @@
+.images {
+    width: 800px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-top: 1px solid var(--blue);
+}
+
+.image-box {
+    margin-bottom: 10%;
+}
+
+.image-box p{
+    color:#fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+}
+
+.image {
+    width: 60%;
+    height: 90%;
+}
+
+@media(max-width:768px) {
+    .images {
+        width: 100%;
+        grid-template-columns: repeat(2, auto);
+    }
+}

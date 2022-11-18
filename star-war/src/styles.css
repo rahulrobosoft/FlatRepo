@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root{
+    --blue : #2E6E9A;
+    --open :  'Open Sans', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--open);
+    color: #fff;
+}
+html {
+    background: url('assets/background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+ul{
+    list-style: none;
+}
+
+
+/* Utility class */
+button,
+.pointer{
+    cursor: pointer;
+}
+
+.center{
+    text-align: center;
+}
+
+
+/* list style */
+
+.main{
+    min-height: 460px;
+
+}
+.characters{
+    width:250px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.characters ul{
+    list-style: none;
+}
+
+.characters ul li{
+    line-height: 38px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.characters ul li:hover{
+    background-color:  #00aaff5d;
+    padding: 0px 10px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons div button{
+    font-size: 16px;
+    background-color: #00aaff5d;
+    border: none;
+    margin: 20px 10px;
+}
+
+.buttons div button:first-child{
+    padding: 5px 20px;
+}
+
+.buttons div button:last-child{
+    padding: 5px 30px;
+}
+
+.deactive{
+    color:#7692A7;
+}
+
+.active {
+    color:#fff;
+}
