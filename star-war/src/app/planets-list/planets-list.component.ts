@@ -8,18 +8,22 @@ import { StarwarService } from '../service/starwar.service';
 })
 export class PlanetsListComponent implements OnInit {
 
-  details:any
+  details:any;
+  deactivate_pre = '';
+  deactivate_nex = '';
   url='https://swapi.dev/api/planets';
   constructor(private sw : StarwarService) { }
 
   ngOnInit(): void {
     this.sw.getPlanets(this.url).subscribe(data => {
       this.details = data;
+      console.log(data);
+      
     })
   }
 
   detail_display(index:number){
-
+    localStorage.setItem('planet',JSON.stringify(this.details.results[index]));
   }
 
   previous(){
@@ -32,6 +36,22 @@ export class PlanetsListComponent implements OnInit {
     this.sw.getPlanets(this.details.next).subscribe(data => {
       this.details = data;
     })
+  }
+
+  deactivate_previous(){
+    if(this.details.previous === null){
+      this.deactivate_pre = 'deactive';
+    }else{
+      this.deactivate_pre = '';
+    }
+  }
+
+  deactivate_next(){
+    if(this.details.next === null){
+      this.deactivate_nex = 'deactive';
+    }else{
+      this.deactivate_nex = '';
+    }
   }
 
 }

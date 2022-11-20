@@ -1,19 +1,20 @@
 
 
     <app-navigation></app-navigation >
-
+        {{deactivate_previous()}}
+        {{deactivate_next()}}
 <div class="main">
     <div class="characters">
         <ul *ngFor="let detail of details?.results"> 
-            <li  [routerLink]="'/character-details'" (click)="detail_display(details?.results.indexOf(detail))">{{detail.name}}</li>
+            <li  [routerLink]="'/species-details'" (click)="detail_display(details?.results.indexOf(detail))">{{detail.name}}</li>
     
          </ul>
     </div>
     
     <div class="buttons">
         <div>
-            <button (click)="previous()">Previous</button>
-            <button (click)="next()">Next</button>
+            <button (click)="previous()" [ngClass]="deactivate_pre">Previous</button>
+            <button (click)="next()" [ngClass]="deactivate_nex">Next</button>
         </div>
     
     </div>

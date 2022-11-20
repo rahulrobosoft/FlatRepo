@@ -90,3 +90,133 @@ button,
 .active {
     color:#fff;
 }
+
+
+/* Detail List */
+
+.outer-body{
+    width: 800px;
+    margin: auto;
+    min-height: 460px;
+}
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.body{
+    height: 400px;
+    background-color: #75bcff21;
+    margin: 30px 0px;
+}
+
+.inside-body{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    height: 300px;
+    width: 80%;
+    margin: auto;
+    padding: 50px 0px;
+}
+.details ul li{
+    line-height: 2.5;
+}
+.details span{
+    color : #A5C1D3;
+}
+
+.image{
+    width: 50%;
+    height: 100%;
+}
+
+.image-content{
+    width: 50%;
+    overflow: auto;
+
+}
+.image-content .details h1{
+    font-weight: 600;
+    line-height: 50px;
+}
+
+.image-content .details{
+    margin: 20px 40px;
+    line-height: 30px;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track { 
+    width: 8px;
+    border: none;
+    background: transparent;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    /* border-radius: 6px; */
+    background-color: #00a8ff;
+}
+
+::-webkit-scrollbar-track {
+    background-image: url("https://i.imgur.com/GvV1R30.png");
+    opacity: 90%;
+    background-repeat: repeat-y;
+    background-size:contain;
+    /* box-shadow:  0 0 6px rgba(0, 0, 0, 0.3); */
+    background-color: transparent;
+}
+
+
+@media(max-width:768px){
+    
+    .outer-body{
+        width: 100%;
+        margin: 5px;
+    }
+    .inside-body{
+        display: block;
+        justify-content: center; 
+        align-items: center;
+        height: auto;
+        width: 100%;
+        /* margin: auto; */
+    }
+
+ 
+
+    .image-content{
+        width: 285px;
+        margin: auto;
+        height: 340px;
+        overflow: auto;
+       
+        /* justify-content: left; */
+    }
+    .image{
+        height: 60%;
+        width: 60%;
+        margin: auto;
+    }
+    .image-content::-webkit-scrollbar{
+        display: none;
+    }
+    .body{
+        height: auto;
+        background: none;
+    }
+
+    .image-content .details{
+        margin: 20px 0px;
+        line-height: 30px;
+    }
+    
+}

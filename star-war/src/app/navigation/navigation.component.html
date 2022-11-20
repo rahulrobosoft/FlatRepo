@@ -1,13 +1,49 @@
-{{hightlight()}}
+{{highlight()}}
 <nav>
     <ul>
-        <li class="pointer" [routerLink]="'/films'"  [routerLinkActive]="active">FILMS</li>
-        <li class="pointer" [routerLink]="'/species'" [routerLinkActive]="active">SPECIES</li>
-        <li class="pointer" [routerLink]="'/planets'" [routerLinkActive]="active" >PLANETS</li>
-        <li class="pointer" [routerLink]="'/characters'"  [routerLinkActive]="active" [ngClass]="active1">CHARACTERS</li>
-        <li class="pointer" [routerLink]="'/starships'" [routerLinkActive]="active">STARSHIPS</li>
-        <li class="pointer" [routerLink]="'/vehicles'" [routerLinkActive]="active">VEHICLES</li>
+        <li 
+        class="pointer" 
+        [routerLink]="'/films'" 
+        [routerLinkActive]="active" 
+        [ngClass]="{active : isValue==1}"
+        >FILMS</li>
+
+        <li 
+        class="pointer" 
+        routerLink='/species' 
+        [routerLinkActive]="active"
+        [ngClass]="{active : isValue==2}"
+        >SPECIES</li>
+
+
+        <li 
+        class="pointer" 
+        routerLink='/planets' 
+        [routerLinkActive]="active"
+        [ngClass]="{active : isValue==3}"
+        >PLANETS</li>
+
+
+        <li 
+        class="pointer" 
+        [routerLink]="'/characters'" 
+        [routerLinkActive]="active" 
+        [ngClass]="{active : isValue==4}"
+        >CHARACTERS</li>
+
+        <li 
+        class="pointer" 
+        routerLink='/starships' 
+        [routerLinkActive]="active"
+        [ngClass]="{active : isValue==5}"
+        >STARSHIPS</li>
+
+
+        <li 
+        class="pointer" 
+        [routerLink]="'/vehicles'" 
+        [routerLinkActive]="active"
+        [ngClass]="{active : isValue==6}"
+        >VEHICLES</li>
     </ul>
 </nav>
-
-

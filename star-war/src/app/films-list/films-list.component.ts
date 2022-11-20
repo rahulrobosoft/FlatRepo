@@ -8,27 +8,17 @@ import { StarwarService } from '../service/starwar.service';
 })
 export class FilmsListComponent implements OnInit {
 
-  details:any;
-  constructor(private sw : StarwarService) { }
+  details: any;
+  constructor(private sw: StarwarService) { }
 
   ngOnInit(): void {
-      this.sw.getFilms().subscribe(data => {
-        this.details = data;
-        console.log(data);
-        
-      })
+    this.sw.getFilms().subscribe(data => {
+      this.details = data;
+    })
   }
 
-  detail_display(index:number)
-{
+  detail_display(index: number) {
+    localStorage.setItem('film', JSON.stringify(this.details.results[index]));
+  }
 
-}
-
-next(){
-
-}
-
-previous(){
-
-}
 }

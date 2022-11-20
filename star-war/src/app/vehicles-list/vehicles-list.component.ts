@@ -9,6 +9,8 @@ import { StarwarService } from '../service/starwar.service';
 export class VehiclesListComponent implements OnInit {
 
   details:any;
+  deactivate_pre = '';
+  deactivate_nex = '';
   url = 'https://swapi.dev/api/vehicles';
   constructor(private sw : StarwarService) { }
 
@@ -17,7 +19,7 @@ export class VehiclesListComponent implements OnInit {
   }
 
   detail_display(index:number){
-
+    localStorage.setItem('vehicle',JSON.stringify(this.details.results[index]));
   }
 
   previous(){
@@ -30,6 +32,22 @@ export class VehiclesListComponent implements OnInit {
     this.sw.getSpecies(this.details.next).subscribe(data => {
       this.details = data;
     })
+  }
+
+  deactivate_previous(){
+    if(this.details.previous === null){
+      this.deactivate_pre = 'deactive';
+    }else{
+      this.deactivate_pre = '';
+    }
+  }
+
+  deactivate_next(){
+    if(this.details.next === null){
+      this.deactivate_nex = 'deactive';
+    }else{
+      this.deactivate_nex = '';
+    }
   }
 
 }

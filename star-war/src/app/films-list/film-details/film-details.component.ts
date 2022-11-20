@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmDetailsComponent implements OnInit {
 
+  details:any;
   constructor() { }
 
   ngOnInit(): void {
+    this.details = JSON.parse(localStorage.getItem('film')as any);
   }
 
 }

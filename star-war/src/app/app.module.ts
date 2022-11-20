@@ -14,9 +14,13 @@ import { CacheInterceptor } from './cache.interceptor';
 import { FilmsListComponent } from './films-list/films-list.component';
 import { SpeciesListComponent } from './species-list/species-list.component';
 import { PlanetsListComponent } from './planets-list/planets-list.component';
-import { StarshipsListComponent } from './starships-list/starships-list.component';
 import { VehiclesListComponent } from './vehicles-list/vehicles-list.component';
 import { FilmDetailsComponent } from './films-list/film-details/film-details.component';
+import { PlanetDetailsComponent } from './planets-list/planet-details/planet-details.component';
+import { SpeciesDetailsComponent } from './species-list/species-details/species-details.component';
+import { StarshipListComponent } from './starship-list/starship-list.component';
+import { StarshipDetailsComponent } from './starship-list/starship-details/starship-details.component';
+import { VehicleDetailsComponent } from './vehicles-list/vehicle-details/vehicle-details.component';
 
 
 @NgModule({
@@ -30,9 +34,13 @@ import { FilmDetailsComponent } from './films-list/film-details/film-details.com
     FilmsListComponent,
     SpeciesListComponent,
     PlanetsListComponent,
-    StarshipsListComponent,
     VehiclesListComponent,
     FilmDetailsComponent,
+    PlanetDetailsComponent,
+    SpeciesDetailsComponent,
+    StarshipListComponent,
+    StarshipDetailsComponent,
+    VehicleDetailsComponent,
   ],
   imports: [
     BrowserModule,

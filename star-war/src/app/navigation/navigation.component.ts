@@ -7,20 +7,25 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(private router : Router) { }
-  active= 'active';
-  active1='';
+  constructor(private router: Router) { }
+  active = 'active';
+  url = '';
+  isValue = 0;
   ngOnInit(): void {
-    
+
   }
 
-  hightlight(){
-    console.log(this.router.url);
-    
-    if(this.router.url == '/character-details'){
-      this.active1 = 'active';
-    }else{
-      this.active1 = '';
+  highlight() {
+    this.url = this.router.url;
+    switch (this.url) {
+      case "/film-details": this.isValue = 1; break;
+      case "/species-details": this.isValue = 2; break;
+      case "/planet-details": this.isValue = 3; break;
+      case "/character-details": this.isValue = 4; break;
+      case "/starship-details": this.isValue = 5; break;
+      case "vehicle-details": this.isValue = 6;
     }
+
   }
+
 }
