@@ -7,15 +7,15 @@
 
         <div class="characters">
             <ul *ngFor="let detail of details?.results"> 
-                <li  [routerLink]="'/vehicle-details'" (click)="detail_display(details?.results.indexOf(detail))">{{detail.name}}</li>
+                <li  [routerLink]="'/vehicle-details'" (click)="detail_display(details?.results.indexOf(detail))">{{detail.name | uppercase}}</li>
         
              </ul>
         </div>
         
-        <div class="buttons">
+        <div class="buttons" *ngIf="details">
             <div>
-                <button (click)="previous()" [ngClass]="deactivate_pre">Previous</button>
-                <button (click)="next()" [ngClass]="deactivate_nex">Next</button>
+                <button (click)="previous()" [ngClass]="deactivate_pre">PREVIOUS</button>
+                <button (click)="next()" [ngClass]="deactivate_nex">NEXT</button>
             </div>
         
         </div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute,ParamMap } from '@angular/router';
 import { StarwarService } from '../service/starwar.service';
 
-
+let url = 'https://swapi.dev/api/people/';
 @Component({
   selector: 'app-characters-list',
   templateUrl: './characters-list.component.html',
@@ -12,12 +13,16 @@ export class CharactersListComponent implements OnInit {
   details: any;
   deactivate_pre = '';
   deactivate_nex = '';
-  url = 'https://swapi.dev/api/people/';
+  // url = 'https://swapi.dev/api/people/';
   constructor(private sw: StarwarService) {
+    
+   
   }
 
   ngOnInit() {
-    this.sw.getPeople(this.url).subscribe(data => {
+    console.log(url);
+    
+    this.sw.getPeople(url).subscribe(data => {
       this.details = data;
       localStorage.setItem('people', JSON.stringify(data));
       
@@ -25,7 +30,9 @@ export class CharactersListComponent implements OnInit {
   }
 
   next() {
-
+    url=this.details?.next;
+    console.log(url);
+    
     this.sw.getPeople(this.details.next).subscribe(data => {
       this.details = data;
     })
@@ -33,6 +40,7 @@ export class CharactersListComponent implements OnInit {
 
 
   previous() {
+    url=this.details?.previous;
     this.sw.getPeople(this.details?.previous).subscribe(data => {
       this.details = data;
     })
@@ -43,7 +51,7 @@ export class CharactersListComponent implements OnInit {
   }
 
   deactivate_previous(){
-    if(this.details.previous === null){
+    if(this.details?.previous === null){
       this.deactivate_pre = 'deactive';
     }else{
       this.deactivate_pre = '';
@@ -51,7 +59,7 @@ export class CharactersListComponent implements OnInit {
   }
 
   deactivate_next(){
-    if(this.details.next === null){
+    if(this.details?.next === null){
       this.deactivate_nex = 'deactive';
     }else{
       this.deactivate_nex = '';

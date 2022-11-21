@@ -13,7 +13,6 @@ import { StarshipDetailsComponent } from './starship-list/starship-details/stars
 import { StarshipListComponent } from './starship-list/starship-list.component';
 import { VehicleDetailsComponent } from './vehicles-list/vehicle-details/vehicle-details.component';
 import { VehiclesListComponent } from './vehicles-list/vehicles-list.component';
-
 const routes: Routes = [
   { path: 'characters', component: CharactersListComponent },
   { path: 'character-details', component: CharactersDetailComponent },

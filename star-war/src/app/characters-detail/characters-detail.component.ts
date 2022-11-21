@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StarwarService } from '../service/starwar.service';
-
+let i=100;
 @Component({
   selector: 'app-characters-detail',
   templateUrl: './characters-detail.component.html',
@@ -10,15 +10,12 @@ export class CharactersDetailComponent implements OnInit {
 
   details:any;
   homeWorld:any;
+  src='';
   constructor(private sw : StarwarService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
+    this.src = 'https://source.unsplash.com/random/?people/' + i++;
     this.details = JSON.parse(localStorage.getItem('character') as any);
-    this.homeWorld = this.details.homeworld;
-    this.sw.getHomeWorld(this.homeWorld).subscribe(data => {
-      this.homeWorld = data;
-      this.homeWorld = this.homeWorld.name;
-    })
   }
 
 }

@@ -6,10 +6,10 @@ import {
   HttpInterceptor,
   HttpResponse
 } from '@angular/common/http';
-import { Observable, of, tap } from 'rxjs';
+import { finalize, Observable, of, tap } from 'rxjs';
 import { HttpCacheService } from './service/http-cache.service';
 import { TimerService } from './service/timer.service';
-
+import { LoaderService } from './service/loader.service';
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {
 
@@ -17,11 +17,13 @@ export class CacheInterceptor implements HttpInterceptor {
 
   constructor(
     private cacheService: HttpCacheService,
-    private timerService: TimerService
+    private timerService: TimerService,
+    public loader : LoaderService,
     ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
+    this.loader.isLoading.next(true);
     this.timerService.startTimer();
     let remainingTimeInMilliseconds = this.timerService.getRemainingTime();
     
@@ -44,8 +46,10 @@ export class CacheInterceptor implements HttpInterceptor {
       // return cached response
       if (cachedResponse) {
         console.log(`Returning a cached response: ${cachedResponse.url}`);
+        this.loader.isLoading.next(false);
         console.log(cachedResponse);
         return of(cachedResponse);
+        
       }
 
       // send request to server and add response to cache
@@ -55,12 +59,22 @@ export class CacheInterceptor implements HttpInterceptor {
             console.log(`Adding item to cache: ${request.url}`);
             this.cacheService.put(request.url, event);
           }
-        })
+        }),finalize(
+          () => {
+            this.loader.isLoading.next(false);
+          }
+        )
       );
     }
     else {
         // pass along non-cacheable requests 
-        return next.handle(request);
+        return next.handle(request).pipe(
+          finalize(
+            () => {
+              this.loader.isLoading.next(false);
+            }
+          )
+        );
     }
 
 

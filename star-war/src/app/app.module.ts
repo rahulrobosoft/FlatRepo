@@ -8,7 +8,7 @@ import { CharactersListComponent } from './characters-list/characters-list.compo
 import { NavigationComponent } from './navigation/navigation.component';
 import { CharactersDetailComponent } from './characters-detail/characters-detail.component';
 import { StarwarService } from './service/starwar.service';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { CacheInterceptor } from './cache.interceptor';
 import { FilmsListComponent } from './films-list/films-list.component';
@@ -21,8 +21,8 @@ import { SpeciesDetailsComponent } from './species-list/species-details/species-
 import { StarshipListComponent } from './starship-list/starship-list.component';
 import { StarshipDetailsComponent } from './starship-list/starship-details/starship-details.component';
 import { VehicleDetailsComponent } from './vehicles-list/vehicle-details/vehicle-details.component';
-
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { LoaderService } from './service/loader.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,14 +45,15 @@ import { VehicleDetailsComponent } from './vehicles-list/vehicle-details/vehicle
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule
   ],
   providers: [StarwarService,
-  {
-    provide : HTTP_INTERCEPTORS,
-    useClass : CacheInterceptor,
-    multi : true
-  }],
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CacheInterceptor,
+      multi: true
+    }, LoaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

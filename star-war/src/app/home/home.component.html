@@ -1,17 +1,17 @@
 
-
+<hr>
 <div class="images">
     <div class="image-box">
-        <img [src]="src[0]" alt="" class="image" (mouseenter)="hover(0)" (mouseleave)="unHover(0)">
+        <img [src]="src[0]" alt="" class="image" routerLink="/films" (mouseenter)="hover(0)"  (mouseleave)="unHover(0)">
         <p>FILMS</p>
     </div>
     <div class="image-box">
-        <img [src]="src[1]" alt="" class="image" (mouseenter)="hover(1)" (mouseleave)="unHover(1)">
+        <img [src]="src[1]" alt="" class="image" routerLink="/species" (mouseenter)="hover(1)" (mouseleave)="unHover(1)">
         <p>SPECIES</p>
 
     </div>
     <div class="image-box">
-        <img [src]="src[2]" alt="" class="image" (mouseenter)="hover(2)" (mouseleave)="unHover(2)">
+        <img [src]="src[2]" alt="" class="image" routerLink="/planets" (mouseenter)="hover(2)" (mouseleave)="unHover(2)">
         <p>PLANETS</p>
 
     </div>
@@ -21,11 +21,11 @@
 
     </div>
     <div class="image-box">
-        <img [src]="src[4]" alt="" class="image" (mouseenter)="hover(4)" (mouseleave)="unHover(4)">
+        <img [src]="src[4]" alt="" class="image" routerLink="/starships" (mouseenter)="hover(4)" (mouseleave)="unHover(4)">
         <p>STARSHIP</p>
     </div>
     <div class="image-box">
-        <img [src]="src[5]" alt="" class="image" (mouseenter)="hover(5)" (mouseleave)="unHover(5)">
+        <img [src]="src[5]" alt="" class="image" routerLink="/vehicles" (mouseenter)="hover(5)" (mouseleave)="unHover(5)">
         <P>VEHICLES</P>
     </div>
 </div>

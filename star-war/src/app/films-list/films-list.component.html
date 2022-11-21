@@ -5,7 +5,7 @@
   
 <div class="characters">
     <ul *ngFor="let detail of details?.results"> 
-        <li  [routerLink]="'/film-details'" (click)="detail_display(details?.results.indexOf(detail))">{{detail.title}}</li>
+        <li  [routerLink]="'/film-details'" (click)="detail_display(details?.results.indexOf(detail))">{{detail.title | uppercase}}</li>
 
      </ul>
 </div>

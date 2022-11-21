@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StarwarService } from '../service/starwar.service';
+let url = 'https://swapi.dev/api/vehicles';
 
 @Component({
   selector: 'app-vehicles-list',
@@ -11,11 +12,10 @@ export class VehiclesListComponent implements OnInit {
   details:any;
   deactivate_pre = '';
   deactivate_nex = '';
-  url = 'https://swapi.dev/api/vehicles';
   constructor(private sw : StarwarService) { }
 
   ngOnInit(): void {
-    this.sw.getVehicles(this.url).subscribe(data => this.details = data)
+    this.sw.getVehicles(url).subscribe(data => this.details = data)
   }
 
   detail_display(index:number){
@@ -23,19 +23,21 @@ export class VehiclesListComponent implements OnInit {
   }
 
   previous(){
-    this.sw.getSpecies(this.details.previous).subscribe(data => {
+    url = this.details?.previous;
+    this.sw.getVehicles(this.details.previous).subscribe(data => {
       this.details = data;
     })
   }
 
   next(){
-    this.sw.getSpecies(this.details.next).subscribe(data => {
+    url = this.details?.next;
+    this.sw.getVehicles(this.details.next).subscribe(data => {
       this.details = data;
     })
   }
 
   deactivate_previous(){
-    if(this.details.previous === null){
+    if(this.details?.previous === null){
       this.deactivate_pre = 'deactive';
     }else{
       this.deactivate_pre = '';
@@ -43,7 +45,7 @@ export class VehiclesListComponent implements OnInit {
   }
 
   deactivate_next(){
-    if(this.details.next === null){
+    if(this.details?.next === null){
       this.deactivate_nex = 'deactive';
     }else{
       this.deactivate_nex = '';

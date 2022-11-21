@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StarwarService } from '../service/starwar.service';
+let url='https://swapi.dev/api/starships';
+
 @Component({
   selector: 'app-starship-list',
   templateUrl: './starship-list.component.html',
@@ -10,15 +12,14 @@ export class StarshipListComponent implements OnInit {
   details:any;
   deactivate_pre = '';
   deactivate_nex = '';
-  url='https://swapi.dev/api/starships';
   constructor(private sw : StarwarService) { }
 
   ngOnInit(): void {
-    this.sw.getStarships(this.url).subscribe(data => this.details = data);
+    this.sw.getStarships(url).subscribe(data => this.details = data);
   }
 
 next() {
-   
+  url = this.details?.next;
   this.sw.getStarships(this.details.next).subscribe(data => {
    this.details = data;
   })
@@ -26,6 +27,7 @@ next() {
 
 
  previous(){
+  url = this.details?.previous;
    this.sw.getStarships(this.details?.previous).subscribe(data => {
    this.details = data;
   })
@@ -37,7 +39,7 @@ next() {
  }
 
  deactivate_previous(){
-  if(this.details.previous === null){
+  if(this.details?.previous === null){
     this.deactivate_pre = 'deactive';
   }else{
     this.deactivate_pre = '';
@@ -45,7 +47,7 @@ next() {
 }
 
 deactivate_next(){
-  if(this.details.next === null){
+  if(this.details?.next === null){
     this.deactivate_nex = 'deactive';
   }else{
     this.deactivate_nex = '';

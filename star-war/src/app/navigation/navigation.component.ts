@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderService } from '../service/loader.service';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -7,13 +8,13 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(private router: Router) { }
   active = 'active';
   url = '';
   isValue = 0;
   ngOnInit(): void {
-
+    
   }
+  constructor(private router: Router,public loader : LoaderService) { }
 
   highlight() {
     this.url = this.router.url;
@@ -23,7 +24,7 @@ export class NavigationComponent implements OnInit {
       case "/planet-details": this.isValue = 3; break;
       case "/character-details": this.isValue = 4; break;
       case "/starship-details": this.isValue = 5; break;
-      case "vehicle-details": this.isValue = 6;
+      case "/vehicle-details": this.isValue = 6;
     }
 
   }
